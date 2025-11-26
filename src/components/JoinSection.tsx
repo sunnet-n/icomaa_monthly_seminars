@@ -114,8 +114,6 @@ export function JoinSection({ isOpen, onClose }: JoinSectionProps) {
                       size="icon"
                       variant="outline"
                       onClick={() => copyToClipboard(zoomLink, "Link")}
-                      aria-label="Copy meeting link"
-                      title="Copy meeting link"
                     >
                       <Copy className="w-4 h-4" />
                     </Button>
@@ -134,8 +132,6 @@ export function JoinSection({ isOpen, onClose }: JoinSectionProps) {
                       size="icon"
                       variant="outline"
                       onClick={() => copyToClipboard(meetingId, "Meeting ID")}
-                      aria-label="Copy meeting ID"
-                      title="Copy meeting ID"
                     >
                       <Copy className="w-4 h-4" />
                     </Button>
@@ -154,8 +150,6 @@ export function JoinSection({ isOpen, onClose }: JoinSectionProps) {
                       size="icon"
                       variant="outline"
                       onClick={() => copyToClipboard(passcode, "Passcode")}
-                      aria-label="Copy passcode"
-                      title="Copy passcode"
                     >
                       <Copy className="w-4 h-4" />
                     </Button>

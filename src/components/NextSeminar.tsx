@@ -1,9 +1,15 @@
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageModal } from "./ImageModal";
 
 export function NextSeminar() {
-  const targetDate = new Date("2024-03-15T09:00:00").getTime();
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  // HOW TO CHANGE THE COUNTDOWN DATE:
+  // Update the date below in the format: "YYYY-MM-DDTHH:MM:SS+03:00"
+  // For GMT+3 timezone, always add "+03:00" at the end
+  // Example: "2025-12-03T15:00:00+03:00" means December 3, 2025 at 3:00 PM (GMT+3)
+  const targetDate = new Date("2025-12-03T15:00:00+03:00").getTime();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -72,11 +78,17 @@ export function NextSeminar() {
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
               {/* Speaker Photo */}
               <div className="flex-shrink-0">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden shadow-xl ring-4 ring-blue-500/20">
+                <div 
+                  className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden shadow-xl ring-4 ring-blue-500/20 cursor-pointer group hover:ring-blue-600/40 transition-all"
+                  onClick={() => setModalImage({ 
+                    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80", 
+                    alt: "Dr. John Smith" 
+                  })}
+                >
                   <ImageWithFallback
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
                     alt="Dr. John Smith"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
               </div>
@@ -108,7 +120,7 @@ export function NextSeminar() {
                 </div>
                 <div className="text-slate-600 text-xs sm:text-sm hidden sm:block">Date</div>
               </div>
-              <div className="text-blue-900 text-xs sm:text-base text-center sm:text-left">March 15, 2024</div>
+              <div className="text-blue-900 text-xs sm:text-base text-center sm:text-left">December 3, 2025</div>
             </div>
 
             <div className="backdrop-blur-sm bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-3 sm:p-5 border border-blue-200/50 shadow-md">
@@ -118,7 +130,7 @@ export function NextSeminar() {
                 </div>
                 <div className="text-slate-600 text-xs sm:text-sm hidden sm:block">Time</div>
               </div>
-              <div className="text-blue-900 text-xs sm:text-base text-center sm:text-left">9:00 AM - 5:00 PM</div>
+              <div className="text-blue-900 text-xs sm:text-base text-center sm:text-left">3:00 PM (GMT+3)</div>
             </div>
 
             <div className="backdrop-blur-sm bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-3 sm:p-5 border border-blue-200/50 shadow-md">
@@ -152,14 +164,27 @@ export function NextSeminar() {
             </p>
           </div>
 
-          {/* Register Button */}
+          {/* Join Meeting Button */}
           <div className="text-center mt-10">
-            <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-full transition-all hover:scale-105 shadow-xl hover:shadow-2xl">
-              Register for This Seminar
-            </button>
+            <a 
+              href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 rounded-full transition-all hover:scale-105 shadow-xl hover:shadow-2xl"
+            >
+              Join Meeting
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      <ImageModal
+        src={modalImage?.src || ""}
+        alt={modalImage?.alt || ""}
+        isOpen={!!modalImage}
+        onClose={() => setModalImage(null)}
+      />
     </section>
   );
 }

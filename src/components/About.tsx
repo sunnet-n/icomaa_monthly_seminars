@@ -25,36 +25,36 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-16 px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-blue-600 text-center mb-12">About ICOMAA</h2>
+        <h2 className="text-blue-600 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl">About ICOMAA</h2>
 
-        <div className="backdrop-blur-lg bg-white/70 rounded-3xl p-8 sm:p-12 border border-white/20 shadow-xl mb-12">
-          <p className="text-slate-700 text-lg leading-relaxed mb-6">
+        <div className="backdrop-blur-lg bg-white/70 rounded-3xl p-6 sm:p-8 lg:p-12 border border-white/20 shadow-xl mb-8 sm:mb-12">
+          <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
             The International Conference on Mathematics and Applications (ICOMAA) is a premier platform 
             for researchers, academics, and professionals to share their latest findings and innovations 
             in the field of mathematics and its applications.
           </p>
-          <p className="text-slate-700 text-lg leading-relaxed">
+          <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
             Since its inception, ICOMAA has been committed to fostering intellectual exchange, 
             promoting collaborative research, and advancing the frontiers of mathematical knowledge 
             across diverse disciplines.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
-                className="backdrop-blur-lg bg-gradient-to-br from-white/80 to-white/60 rounded-3xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-all"
+                className="backdrop-blur-lg bg-gradient-to-br from-white/80 to-white/60 rounded-3xl p-6 sm:p-8 border border-white/20 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="backdrop-blur-sm bg-blue-500 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-md">
-                  <Icon className="text-white" size={28} />
+                <div className="backdrop-blur-sm bg-blue-500 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 shadow-md">
+                  <Icon className="text-white" size={24} />
                 </div>
-                <h3 className="text-blue-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600">{feature.description}</p>
+                <h3 className="text-blue-900 mb-2 sm:mb-3 text-lg sm:text-xl">{feature.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base">{feature.description}</p>
               </div>
             );
           })}

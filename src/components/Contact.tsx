@@ -96,7 +96,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-neutral-900 px-6 py-4 rounded-full transition-all hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
+                className="w-full bg-amber-500 hover:bg-amber-600 text-neutral-900 px-4 sm:px-6 py-3 sm:py-4 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 will-change-transform flex items-center justify-center space-x-2 text-sm sm:text-base"
               >
                 <span>Send Message</span>
                 <Send size={18} />

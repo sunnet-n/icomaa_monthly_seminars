@@ -21,34 +21,37 @@ export function AnnualConference() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Conference Brochure */}
-          <div className="backdrop-blur-xl bg-white/80 rounded-[2.5rem] p-8 sm:p-10 border border-white/60 shadow-2xl hover:shadow-3xl transition-all">
+          <div className="backdrop-blur-xl bg-white/80 rounded-[2.5rem] p-6 sm:p-8 lg:p-10 border border-white/60 shadow-2xl hover:shadow-3xl transition-all">
             <div 
-              className="aspect-[3/4] bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-3xl overflow-hidden shadow-2xl mb-6 relative group cursor-pointer"
+              className="aspect-[3/4] bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-3xl shadow-2xl mb-6 relative overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform"
               onClick={() => setModalImage({ 
                 src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80", 
                 alt: "Conference Brochure" 
               })}
             >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80"
-                alt="Conference Brochure"
-                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-              />
+              <div className="absolute inset-0 overflow-hidden">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80"
+                  alt="Conference Brochure"
+                  className="w-full h-full object-cover object-center opacity-90 scale-105"
+                  loading="lazy"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-white mb-2 drop-shadow-lg">Conference 2024</h3>
-                <p className="text-white drop-shadow-md text-sm">October 20-23, 2024</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                <h3 className="text-white mb-1 sm:mb-2 drop-shadow-lg text-xl sm:text-2xl">Conference 2024</h3>
+                <p className="text-white drop-shadow-md text-xs sm:text-sm">October 20-23, 2024</p>
               </div>
             </div>
 
-            <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-4 rounded-full transition-all hover:scale-105 shadow-lg flex items-center justify-center gap-3 mb-4">
-              <Download size={20} />
+            <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 will-change-transform flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-sm sm:text-base">
+              <Download size={18} className="sm:w-5 sm:h-5" />
               <span>Download Brochure</span>
             </button>
 
-            <button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-6 py-4 rounded-full transition-all hover:scale-105 shadow-lg">
+            <button className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 will-change-transform text-sm sm:text-base">
               Register for Conference
             </button>
           </div>

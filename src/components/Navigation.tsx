@@ -1,10 +1,11 @@
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import logoImage from "figma:asset/648f4aef5a465702a33acc7656f71240d0017115.png";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +14,22 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node) && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const navItems = [
     { label: "Home", href: "#hero" },
@@ -34,6 +51,7 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4">
         <div 
+          ref={navRef}
           className={`backdrop-blur-xl rounded-3xl transition-all duration-300 shadow-lg ${
             scrolled 
               ? "bg-white/95 shadow-xl" 
@@ -47,6 +65,7 @@ export function Navigation() {
                   src={logoImage} 
                   alt="ICOMAA Logo" 
                   className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+                  loading="eager"
                 />
                 <div className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   <h1>ICOMAA</h1>
@@ -85,18 +104,18 @@ export function Navigation() {
 
           {/* Mobile Navigation */}
           <div 
-            className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-              isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-            }`}
+            className={`mobile-menu-curtain ${isOpen ? 'mobile-menu-open' : ''}`}
           >
-            <div className="px-4 pb-4 pt-2 space-y-1 border-t border-slate-200/50 mt-2">
+            <div className="mobile-menu-content">
               {navItems.map((item, index) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-5 py-3.5 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all rounded-2xl"
+                  className="mobile-menu-item"
                   style={{
-                    animation: isOpen ? `slideIn 0.3s ease-out ${index * 0.05}s both` : "none"
+                    animation: isOpen 
+                      ? `slideIn 0.4s ease-out ${index * 0.07}s both` 
+                      : "none"
                   }}
                 >
                   {item.label}
@@ -108,14 +127,65 @@ export function Navigation() {
       </div>
       
       <style>{`
+        .mobile-menu-curtain {
+          overflow: hidden;
+          max-height: 0;
+          opacity: 0;
+          transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+        }
+
+        .mobile-menu-curtain.mobile-menu-open {
+          max-height: 500px;
+          opacity: 1;
+        }
+
+        .mobile-menu-content {
+          padding: 0.5rem 1rem 1rem;
+          border-top: 1px solid rgba(226, 232, 240, 0.5);
+          margin-top: 0.5rem;
+        }
+
+        .mobile-menu-item {
+          display: block;
+          width: 100%;
+          text-align: left;
+          padding: 1rem 1.5rem;
+          color: #374151;
+          background: none;
+          border: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+          font-size: 1.1rem;
+          font-weight: 500;
+          border-radius: 10px;
+          margin-bottom: 0.25rem;
+        }
+
+        .mobile-menu-item:hover {
+          background: rgba(59, 130, 246, 0.1);
+          color: rgb(37, 99, 235);
+          padding-left: 2rem;
+        }
+
+        .mobile-menu-item:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+
         @keyframes slideIn {
           from {
             opacity: 0;
-            transform: translateX(-10px);
+            transform: translateX(-20px);
           }
           to {
             opacity: 1;
             transform: translateX(0);
+          }
+        }
+
+        @media (min-width: 768px) {
+          .mobile-menu-curtain {
+            display: none;
           }
         }
       `}</style>

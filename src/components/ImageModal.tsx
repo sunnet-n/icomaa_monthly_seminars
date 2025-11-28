@@ -47,24 +47,25 @@ export function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
       {/* Blurred Background */}
       <div className="absolute inset-0 backdrop-blur-2xl bg-black/70"></div>
 
-      {/* Close Button */}
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110"
-        aria-label="Close"
-      >
-        <X size={24} className="text-slate-900" />
-      </button>
-
       {/* Image Container */}
       <div
         className="relative max-w-4xl w-full max-h-[85vh] animate-scaleIn"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute -top-4 -right-4 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 will-change-transform"
+          aria-label="Close"
+        >
+          <X size={24} className="text-slate-900" />
+        </button>
+
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-contain rounded-3xl shadow-2xl"
+          className="w-full h-full object-contain rounded-3xl shadow-2xl gpu-accelerated"
+          loading="lazy"
         />
       </div>
 

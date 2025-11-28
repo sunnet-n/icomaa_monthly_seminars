@@ -1,5 +1,5 @@
 import { Calendar, ChevronLeft, ChevronRight, Users } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ImageModal } from "./ImageModal";
 
@@ -33,8 +33,7 @@ export function PastConferences() {
       date: "September 15, 2023",
       speaker: "Dr. Maria Rodriguez",
       position: "Professor, Stanford University",
-      speakerPhoto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-      color: "from-blue-500 to-cyan-500"
+      speakerPhoto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
     },
     {
       id: 2,
@@ -42,8 +41,7 @@ export function PastConferences() {
       date: "August 22, 2023",
       speaker: "Dr. James Chen",
       position: "Research Director, MIT",
-      speakerPhoto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-      color: "from-purple-500 to-pink-500"
+      speakerPhoto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
     },
     {
       id: 3,
@@ -51,8 +49,7 @@ export function PastConferences() {
       date: "July 10, 2023",
       speaker: "Dr. Sarah Williams",
       position: "Lead Researcher, Cambridge",
-      speakerPhoto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
-      color: "from-emerald-500 to-teal-500"
+      speakerPhoto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80"
     },
     {
       id: 4,
@@ -60,23 +57,22 @@ export function PastConferences() {
       date: "June 5, 2023",
       speaker: "Dr. Robert Kumar",
       position: "Professor, Oxford University",
-      speakerPhoto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-      color: "from-orange-500 to-red-500"
+      speakerPhoto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80"
     }
   ];
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  }, [images.length]);
 
   return (
     <section id="past-conferences" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-center mb-12">
+        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl">
           Past Events
         </h2>
 
@@ -86,19 +82,20 @@ export function PastConferences() {
             className="relative aspect-video rounded-3xl overflow-hidden group cursor-pointer"
             onClick={() => setModalImage({ 
               src: images[currentImageIndex].url, 
-              alt: images[currentImageIndex].caption 
+              alt: images[currentImageIndex].caption
             })}
           >
             <ImageWithFallback
               src={images[currentImageIndex].url}
               alt={images[currentImageIndex].caption}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             
             {/* Caption */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-              <p className="text-white text-lg sm:text-xl">{images[currentImageIndex].caption}</p>
+            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6">
+              <p className="text-white text-base sm:text-lg md:text-xl">{images[currentImageIndex].caption}</p>
             </div>
 
             {/* Navigation Buttons */}
@@ -107,7 +104,7 @@ export function PastConferences() {
                 e.stopPropagation();
                 prevImage();
               }}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl transition-all hover:scale-110 opacity-0 group-hover:opacity-100 z-10"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 will-change-transform z-10"
               aria-label="Previous image"
             >
               <ChevronLeft className="text-slate-800" size={24} />
@@ -118,7 +115,7 @@ export function PastConferences() {
                 e.stopPropagation();
                 nextImage();
               }}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl transition-all hover:scale-110 opacity-0 group-hover:opacity-100 z-10"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 will-change-transform z-10"
               aria-label="Next image"
             >
               <ChevronRight className="text-slate-800" size={24} />
@@ -147,46 +144,38 @@ export function PastConferences() {
           <h3 className="text-slate-800 text-center mb-8">Featured Past Seminars</h3>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {pastSeminars.map((seminar) => (
             <div
               key={seminar.id}
-              className="backdrop-blur-xl bg-white/80 rounded-3xl overflow-hidden border border-white/60 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+              className="backdrop-blur-xl bg-white/80 rounded-3xl overflow-hidden border border-white/60 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Colored Header */}
-              <div className={`h-2 bg-gradient-to-r ${seminar.color}`}></div>
-              
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 {/* Speaker Info */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div 
-                    className={`w-16 h-16 rounded-2xl overflow-hidden shadow-lg ring-2 ring-offset-2 bg-gradient-to-br ${seminar.color} ring-offset-white flex-shrink-0 cursor-pointer hover:ring-4 transition-all group`}
-                    onClick={() => setModalImage({ 
-                      src: seminar.speakerPhoto.replace('w=400', 'w=1200'), 
-                      alt: seminar.speaker 
-                    })}
-                  >
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-lg ring-2 ring-amber-500/40 flex-shrink-0 overflow-hidden">
                     <ImageWithFallback
                       src={seminar.speakerPhoto}
                       alt={seminar.speaker}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover object-center scale-110"
+                      loading="lazy"
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-slate-900 truncate">{seminar.speaker}</div>
-                    <p className="text-slate-600 text-sm truncate">{seminar.position}</p>
+                    <div className="text-slate-900 truncate text-sm sm:text-base">{seminar.speaker}</div>
+                    <p className="text-slate-600 text-xs sm:text-sm truncate">{seminar.position}</p>
                   </div>
                 </div>
 
                 {/* Seminar Title */}
-                <h4 className="text-slate-800 mb-4 leading-snug">
+                <h4 className="text-slate-800 mb-3 sm:mb-4 leading-snug text-base sm:text-lg">
                   {seminar.title}
                 </h4>
 
                 {/* Date */}
-                <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${seminar.color} bg-opacity-10 px-4 py-2 rounded-full`}>
-                  <Calendar size={16} className="text-slate-600" />
-                  <span className="text-slate-700 text-sm">{seminar.date}</span>
+                <div className="inline-flex items-center gap-2 bg-amber-500/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                  <Calendar size={14} className="text-amber-600 sm:w-4 sm:h-4" />
+                  <span className="text-slate-700 text-xs sm:text-sm">{seminar.date}</span>
                 </div>
               </div>
             </div>
@@ -194,8 +183,8 @@ export function PastConferences() {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-10">
-          <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full transition-all hover:scale-105 shadow-xl">
+        <div className="text-center mt-8 sm:mt-10">
+          <button className="bg-amber-500 hover:bg-amber-600 text-neutral-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all hover:scale-105 shadow-xl text-sm sm:text-base">
             View All Past Events
           </button>
         </div>

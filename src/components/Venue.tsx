@@ -1,4 +1,5 @@
 import { Building2, Car, MapPin, Train } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Venue() {
   return (
@@ -13,12 +14,12 @@ export function Venue() {
               <div className="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
                 <Building2 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 flex-shrink-0" size={28} />
                 <div>
-                  <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-700 mb-1 sm:mb-2 text-lg sm:text-xl">Conference Center</h3>
+                  <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-pink-700 mb-1 sm:mb-2 text-lg sm:text-xl">Conference Hall & Zoom Meetings</h3>
                   <p className="text-slate-700 text-sm sm:text-base">
-                    International Mathematics Research Institute
+                    Matematics Departmen, E block,
                   </p>
                   <p className="text-slate-600 mt-1 sm:mt-2 text-sm sm:text-base">
-                    1234 Academic Drive, University District
+                    Yidiz Technical University, Davutpasa District, Istanbul, Turkey
                   </p>
                 </div>
               </div>
@@ -28,11 +29,7 @@ export function Venue() {
                 <ul className="space-y-2 text-slate-700 text-sm sm:text-base">
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-2 flex-shrink-0">•</span>
-                    <span>Main auditorium with 500 seats</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 flex-shrink-0">•</span>
-                    <span>4 breakout rooms for parallel sessions</span>
+                    <span>3 breakout rooms for parallel sessions</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-2 flex-shrink-0">•</span>
@@ -55,7 +52,7 @@ export function Venue() {
                   <Train className="text-pink-600 flex-shrink-0" size={20} />
                   <div>
                     <div className="text-slate-900 mb-1 text-sm sm:text-base">Public Transit</div>
-                    <p className="text-slate-600 text-xs sm:text-sm">Metro Line 2, University Station (5 min walk)</p>
+                    <p className="text-slate-600 text-xs sm:text-sm">Metro Line M1 A, University Station (10 min walk)</p>
                   </div>
                 </div>
                 
@@ -70,15 +67,24 @@ export function Venue() {
             </div>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="backdrop-blur-xl bg-white/90 rounded-3xl p-4 border border-purple-200/30 shadow-lg">
-            <div className="w-full h-full min-h-[300px] sm:min-h-[400px] bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 rounded-2xl flex items-center justify-center">
-              <div className="text-center px-4">
-                <MapPin className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mx-auto mb-3 sm:mb-4" size={40} />
-                <p className="text-slate-600 mb-3 sm:mb-4 text-sm sm:text-base">Interactive Map</p>
-                <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:scale-105 shadow-md hover:shadow-lg active:scale-95 will-change-transform text-xs sm:text-sm">
-                  Open in Google Maps
-                </button>
+          {/* Map with Istanbul Photo */}
+          <div className="backdrop-blur-xl bg-white/90 rounded-3xl p-4 border border-purple-200/30 shadow-lg overflow-hidden">
+            <div className="relative w-full h-full min-h-[300px] sm:min-h-[400px] rounded-2xl overflow-hidden group">
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1600425983819-bfa245a64f44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxJc3RhbmJ1bCUyMGNpdHlzY2FwZSUyMGJvc3Bob3J1c3xlbnwxfHx8fDE3NjQzOTkyMjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                alt="Istanbul Bosphorus Cityscape"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center p-6 sm:p-8">
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <MapPin className="text-white drop-shadow-lg" size={28} />
+                    <p className="text-white drop-shadow-lg text-lg sm:text-xl">Istanbul, Turkey</p>
+                  </div>
+                  <button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:scale-105 shadow-md hover:shadow-lg active:scale-95 will-change-transform text-xs sm:text-sm backdrop-blur-sm">
+                    Open in Google Maps
+                  </button>
+                </div>
               </div>
             </div>
           </div>

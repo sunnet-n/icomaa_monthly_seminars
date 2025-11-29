@@ -12,52 +12,44 @@ export function Team() {
 
   const teamImages = [
     {
-      url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
-      caption: "ICOMAA Team - Annual Meeting 2024",
+      url: "images/our_team.jpg",
+      caption: "ICOMAA Team - Dinner Event",
     },
     {
-      url: "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?w=1200&q=80",
-      caption: "Team Workshop Session",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80",
-      caption: "Conference Planning Meeting",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
-      caption: "Team Collaboration",
+      url: "images/(4).jpg",
+      caption: "Lunch with our invited speaker",
     },
   ];
 
   const organizers = [
     {
       id: 1,
-      name: "Dr. Emily Thompson",
+      name: "Prof. Dr. Yusuf Zeren",
       role: "Conference Chair",
-      affiliation: "MIT",
+      affiliation: "Yildiz Technical University",
       photo:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
-      email: "emily.thompson@icomaa.org",
+        "images/yusuf_zeren.jpg",
+      email: "yzeren@yildiz.edu.tr",
       color: "from-blue-500 to-cyan-500",
     },
     {
       id: 2,
-      name: "Prof. Michael Zhang",
+      name: "Dr. Sunnet Avezov",
       role: "Program Director",
-      affiliation: "Stanford University",
+      affiliation: "Yildiz Technical University",
       photo:
-        "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&q=80",
-      email: "michael.zhang@icomaa.org",
+        "images/sunnet.jpg",
+      email: "awezowsunnet@gmail.com",
       color: "from-purple-500 to-pink-500",
     },
     {
       id: 3,
-      name: "Dr. Sarah Martinez",
+      name: "Dr. Elif Demir",
       role: "Logistics Coordinator",
-      affiliation: "Cambridge University",
+      affiliation: "Yildiz Technical University",
       photo:
-        "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80",
-      email: "sarah.martinez@icomaa.org",
+        "images/Elif_photo.jpg",
+      email: "elifdemir1317@gmail.com",
       color: "from-emerald-500 to-teal-500",
     },
   ];
@@ -260,7 +252,7 @@ export function Team() {
               </div>
               <div className="backdrop-blur-xl bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl p-3 border border-purple-200 shadow-lg">
                 <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-700 text-xl sm:text-2xl">
-                  8
+                  5
                 </div>
                 <p className="text-slate-600 text-xs">
                   Countries
@@ -277,11 +269,11 @@ export function Team() {
           </h3>
           <p className="text-neutral-300 mb-4 max-w-2xl mx-auto text-xs sm:text-sm">
             We're always looking for passionate individuals to
-            help us organize amazing mathematical events.
+            help us organize amazing mathematical events. Send a mail us if you want to be part of our community!
           </p>
-          <button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full hover:scale-105 transition-all shadow-xl text-sm">
+          {/*<button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full hover:scale-105 transition-all shadow-xl text-sm">
             Become a Volunteer
-          </button>
+          </button>*/}
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { Mail, Phone, Send } from "lucide-react";
+import { Mail, Phone, Send, Globe } from "lucide-react";
 import { useState } from "react";
 
 export function Contact() {
@@ -150,13 +150,13 @@ export function Contact() {
               {/* Status Messages */}
               {submitStatus === "success" && (
                 <div className="bg-green-500/20 border border-green-500 text-green-400 px-4 py-3 rounded-2xl text-sm">
-                  ✓ Thank you! Your message has been sent successfully. We'll get back to you at awezowsunnet@gmail.com soon!
+                  ✓ Thank you! Your message has been sent successfully. We'll get back to you at icomaa.info@gmail.com soon!
                 </div>
               )}
               
               {submitStatus === "error" && (
                 <div className="bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded-2xl text-sm">
-                  ✗ Oops! Something went wrong. Please try again or email us directly at awezowsunnet@gmail.com
+                  ✗ Oops! Something went wrong. Please try again or email us directly at icomaa.info@gmail.com
                 </div>
               )}
 
@@ -189,13 +189,13 @@ export function Contact() {
                       href="mailto:awezowsunnet@gmail.com"
                       className="text-amber-400 hover:text-amber-300 transition-colors break-words text-sm sm:text-base block"
                     >
-                      awezowsunnet@gmail.com
+                      icomaa.info@gmail.com
                     </a>
                     <a
                       href="mailto:info@icomaa.org"
                       className="text-amber-400 hover:text-amber-300 transition-colors break-words text-sm sm:text-base block mt-1"
                     >
-                      info@icomaa.org
+                      awezowsunnet@gmail.com
                     </a>
                   </div>
                 </div>
@@ -208,7 +208,7 @@ export function Contact() {
                       href="tel:+1234567890"
                       className="text-amber-400 hover:text-amber-300 transition-colors text-sm sm:text-base block"
                     >
-                      +1 (234) 567-890
+                      +90 (552) 665-64-30
                     </a>
                     <p className="text-neutral-400 text-xs sm:text-sm mt-1.5">
                       Mon-Fri, 9:00 AM - 5:00 PM
@@ -219,19 +219,24 @@ export function Contact() {
             </div>
 
             <div className="bg-amber-500 rounded-3xl p-5 sm:p-6 md:p-8 border border-amber-400 shadow-xl">
-              <h3 className="text-neutral-900 mb-4 sm:mb-5 text-xl sm:text-2xl">Office Hours</h3>
-              <div className="space-y-2.5 sm:space-y-3 text-sm sm:text-base">
-                <div className="flex justify-between gap-4">
-                  <span className="text-neutral-900/90">Monday - Friday</span>
-                  <span className="text-right text-neutral-900">9:00 AM - 5:00 PM</span>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <span className="text-neutral-900/90">Saturday</span>
-                  <span className="text-right text-neutral-900">10:00 AM - 2:00 PM</span>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <span className="text-neutral-900/90">Sunday</span>
-                  <span className="text-right text-neutral-900">Closed</span>
+              <div className="flex items-start gap-4">
+                <Globe className="text-neutral-900 flex-shrink-0 mt-1" size={28} />
+                <div className="flex-1">
+                  <h3 className="text-neutral-900 mb-2 text-xl sm:text-2xl">Visit Our Website</h3>
+                  <p className="text-neutral-900/80 text-sm sm:text-base mb-4">
+                    Explore more about our seminars and events
+                  </p>
+                  <a
+                    href="https://2025.icomaas.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg text-sm sm:text-base"
+                  >
+                    <span>2025.icomaas.com</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -241,7 +246,7 @@ export function Contact() {
         {/* Footer */}
         <div className="mt-12 sm:mt-16 text-center bg-neutral-800 rounded-3xl p-5 sm:p-6 border border-neutral-700 shadow-xl">
           <p className="text-neutral-400 text-sm sm:text-base">
-            © 2024 ICOMAA Seminar Series. All rights reserved.
+            © 2025-2026 ICOMAA Seminar Series. All rights reserved.
           </p>
         </div>
       </div>

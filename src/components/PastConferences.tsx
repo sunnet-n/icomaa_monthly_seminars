@@ -9,19 +9,23 @@ export function PastConferences() {
   
   const images = [
     {
-      url: "https://images.unsplash.com/photo-1526045004414-3e7ed02f9ca1?w=1200&q=80",
+      url: "images/25-24_event.jpg",
       caption: "ICOMAA 2023 Opening Ceremony"
     },
     {
-      url: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=1200&q=80",
+      url: "images/(1).jpg",
       caption: "Keynote Presentation"
     },
     {
-      url: "https://images.unsplash.com/photo-1760420940953-3958ad9f6287?w=1200&q=80",
+      url: "images/(2).jpg",
       caption: "Panel Discussion"
     },
     {
-      url: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=1200&q=80",
+      url: "images/25-24_event2.jpg",
+      caption: "Panel Discussion"
+    },
+    {
+      url: "images/25-24_event1.jpg",
       caption: "Networking Event"
     }
   ];
@@ -29,35 +33,35 @@ export function PastConferences() {
   const pastSeminars = [
     {
       id: 1,
-      title: "Computational Methods in Differential Equations",
-      date: "September 15, 2023",
-      speaker: "Dr. Maria Rodriguez",
-      position: "Professor, Stanford University",
-      speakerPhoto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
+      title: "Bernstein-Walch Theorem and on the Uniqueness Theorems of Entire Functions",
+      date: "October 15, 2025",
+      speaker: "Prof. Dr. Djebbar BACHIR",
+      position: "Oran University of Science and Technology, Algeria",
+      speakerPhoto: "images/photo_speaker1.jpg"
     },
     {
       id: 2,
-      title: "Topology and Its Applications in Data Science",
-      date: "August 22, 2023",
-      speaker: "Dr. James Chen",
-      position: "Research Director, MIT",
-      speakerPhoto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
+      title: "Frequency Estimation Using Discrete Fourier Transform(DFT)",
+      date: "December 4, 2024",
+      speaker: "Prof. Dr. Ahmet SERBES",
+      position: "Yildiz Technical University, Turkey",
+      speakerPhoto: "images/no_photo.jpg"
     },
     {
       id: 3,
-      title: "Algebraic Structures in Quantum Computing",
-      date: "July 10, 2023",
-      speaker: "Dr. Sarah Williams",
-      position: "Lead Researcher, Cambridge",
-      speakerPhoto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80"
+      title: "On Topological Indices of Graphs and Their Applications",
+      date: "February 28th, 2024",
+      speaker: "Prof. Dr. Mohammad KAMAL JAMIL",
+      position: "Riphah International University, Pakistan",
+      speakerPhoto: "images/no_photo.jpg"
     },
     {
       id: 4,
-      title: "Stochastic Processes in Financial Mathematics",
-      date: "June 5, 2023",
-      speaker: "Dr. Robert Kumar",
-      position: "Professor, Oxford University",
-      speakerPhoto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80"
+      title: "On the Formalization of Physical Systems Mathematics",
+      date: "February 14, 2024",
+      speaker: "Prof. Dr. Sofiene TAHAR",
+      position: "Concordia University, Canada",
+      speakerPhoto: "images/no_photo.jpg"
     }
   ];
 
@@ -183,12 +187,13 @@ export function PastConferences() {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-8 sm:mt-10">
+       {/* <div className="text-center mt-8 sm:mt-10">
           <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all hover:scale-105 shadow-xl text-sm sm:text-base">
             View All Past Events
           </button>
         </div>
-      </div>
+        */}
+      </div> 
 
       {/* Image Modal */}
       <ImageModal

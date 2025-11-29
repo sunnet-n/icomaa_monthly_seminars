@@ -71,7 +71,7 @@ export function NextSeminar() {
           {/* Talk Title */}
           <div className="text-center mb-6 sm:mb-8 md:mb-10">
             <h2 className="text-blue-900 mb-2 sm:mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight px-2">
-              Advanced Topics in Applied Mathematics
+               Modeling the Role of Immune Cells in Resistance to Oncolotic Viral Therapy with Time Delays
             </h2>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full mx-auto"></div>
           </div>
@@ -83,7 +83,7 @@ export function NextSeminar() {
               <div className="flex-shrink-0">
                 <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-3xl shadow-xl ring-4 ring-blue-500/20 overflow-hidden">
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+                    src="images/my photo.jpg"
                     alt="Dr. John Smith"
                     className="w-full h-full object-cover object-center scale-110"
                     loading="lazy"
@@ -94,16 +94,16 @@ export function NextSeminar() {
               {/* Speaker Details */}
               <div className="flex-1 text-center sm:text-left">
                 <div className="inline-block bg-blue-100 text-blue-700 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm mb-2 sm:mb-3">
-                  Keynote Speaker
+                  Speaker
                 </div>
-                <h3 className="text-blue-900 mb-1 sm:mb-2 text-xl sm:text-2xl">Dr. John Smith</h3>
+                <h3 className="text-blue-900 mb-1 sm:mb-2 text-xl sm:text-2xl">Prof. Dr. Sophia JANG, Texas Tech University, USA</h3>
                 <p className="text-blue-700 mb-2 sm:mb-3 text-sm sm:text-base">
                   Professor of Applied Mathematics
                 </p>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                  Director of Computational Research Institute, MIT. Internationally recognized expert 
-                  in numerical analysis and scientific computing with over 150 publications and numerous 
-                  awards including the Fields Medal nomination.
+                  Sophia R.-J. Jang received her Ph.D. in 1990 from Texas Tech University. She joined Texas Tech as an associate professor in Fall of 2008.
+                  Before returning to Tech, she was a faculty member at the University of Louisiana at Lafayette. Her main research activities are in 
+                  mathematical biology and applied mathematics.
                 </p>
               </div>
             </div>
@@ -138,7 +138,7 @@ export function NextSeminar() {
                 </div>
                 <div className="text-slate-600 text-xs sm:text-sm hidden sm:block">Location</div>
               </div>
-              <div className="text-blue-900 text-xs sm:text-base text-center sm:text-left">Main Auditorium</div>
+              <div className="text-blue-900 text-xs sm:text-base text-center sm:text-left">Zoom Meeting</div>
             </div>
           </div>
 
@@ -149,28 +149,20 @@ export function NextSeminar() {
               <h4 className="text-blue-900 text-lg sm:text-xl">Abstract</h4>
             </div>
             <p className="text-slate-700 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
-              This seminar will explore cutting-edge developments in applied mathematics, focusing on 
-              computational methods for solving complex real-world problems. We will discuss recent 
-              breakthroughs in numerical optimization, machine learning integration with classical 
-              mathematical frameworks, and applications in engineering and physics.
-            </p>
-            <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
-              Attendees will gain insights into modern computational techniques, learn about the latest 
-              research directions in the field, and discover opportunities for interdisciplinary 
-              collaboration. The session will include interactive discussions and Q&A segments, 
-              providing a platform for meaningful academic exchange.
+              This seminar presents an extended tumor-virus interaction model that incorporates immune cells to study 
+                 their impact on resistance during oncolytic viral therapy (OVT). We'll explore mathematical modeling 
+                 approaches and their clinical implications in cancer treatment.
             </p>
           </div>
 
           {/* Join Meeting Button */}
           <div className="text-center mt-6 sm:mt-8 md:mt-10">
-            <a 
-              href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c"
+            <a  href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full hover:scale-105 shadow-xl hover:shadow-2xl active:scale-95 will-change-transform text-sm sm:text-base"
             >
-              Join Meeting
+              Join Zoom Meeting
             </a>
           </div>
         </div>

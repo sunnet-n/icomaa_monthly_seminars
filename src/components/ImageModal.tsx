@@ -55,7 +55,7 @@ export function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute -top-4 -right-4 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 will-change-transform"
+          className="absolute -top-16 -right-4 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 will-change-transform transition-all"
           aria-label="Close"
         >
           <X size={24} className="text-slate-900" />

@@ -187,12 +187,12 @@
 html {
   font-size: var(--font-size);
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 50px;
 }
 
 /* Scroll offset for sections to account for fixed navbar */
 section {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 50px;
 }
 
 /* Performance optimizations */

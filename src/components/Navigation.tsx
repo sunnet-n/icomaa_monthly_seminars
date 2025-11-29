@@ -67,7 +67,7 @@ export function Navigation() {
                   className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
                   loading="eager"
                 />
-                <div className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <div className="bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
                   <h1>ICOMAA</h1>
                 </div>
               </div>
@@ -79,10 +79,10 @@ export function Navigation() {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="relative px-4 py-2 text-slate-700 hover:text-blue-600 transition-all rounded-2xl hover:bg-blue-50 group"
+                  className="relative px-4 py-2 text-slate-700 hover:text-blue-600 transition-all rounded-2xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 group"
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
+                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
                 </button>
               ))}
             </div>
@@ -93,8 +93,8 @@ export function Navigation() {
                 onClick={() => setIsOpen(!isOpen)}
                 className={`relative w-10 h-10 rounded-2xl flex items-center justify-center transition-all duration-300 ${
                   isOpen 
-                    ? "bg-gradient-to-br from-blue-600 to-cyan-600 text-white rotate-90" 
-                    : "bg-blue-50 text-blue-600 hover:bg-blue-100"
+                    ? "bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-600 text-white rotate-90" 
+                    : "bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-600 hover:from-blue-100 hover:to-cyan-100"
                 }`}
               >
                 {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -162,7 +162,7 @@ export function Navigation() {
         }
 
         .mobile-menu-item:hover {
-          background: rgba(59, 130, 246, 0.1);
+          background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
           color: rgb(37, 99, 235);
           padding-left: 2rem;
         }

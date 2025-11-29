@@ -8,11 +8,45 @@ export function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("Thank you for your message! We'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...formData,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } else {
+        setSubmitStatus("error");
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -20,16 +54,31 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-neutral-900">
+    <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-neutral-900">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-amber-500 text-center mb-12">Contact Us</h2>
+        <h2 className="text-amber-500 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl">Contact Us</h2>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Contact Form */}
-          <div className="backdrop-blur-lg bg-neutral-800 rounded-3xl p-6 sm:p-8 border border-neutral-700/50 shadow-lg">
-            <h3 className="text-white mb-6">Send us a message</h3>
+          <div className="bg-neutral-800 rounded-3xl p-5 sm:p-6 md:p-8 border border-neutral-700 shadow-xl">
+            <h3 className="text-white mb-5 sm:mb-6 text-xl sm:text-2xl">Send us a message</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit} 
+              className="space-y-4 sm:space-y-5"
+            >
+              {/* Hidden fields for Netlify Forms */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div>
                 <label htmlFor="name" className="block text-neutral-300 mb-2 text-sm sm:text-base">
                   Name
@@ -41,7 +90,8 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-neutral-400"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-neutral-400 text-sm sm:text-base disabled:opacity-50"
                   placeholder="Your name"
                 />
               </div>
@@ -57,7 +107,8 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-neutral-400"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-neutral-400 text-sm sm:text-base disabled:opacity-50"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -73,7 +124,8 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-neutral-400"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-white placeholder-neutral-400 text-sm sm:text-base disabled:opacity-50"
                   placeholder="What is this about?"
                 />
               </div>
@@ -88,63 +140,77 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none text-white placeholder-neutral-400"
+                  disabled={isSubmitting}
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-neutral-600 bg-neutral-700/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none text-white placeholder-neutral-400 text-sm sm:text-base disabled:opacity-50"
                   placeholder="Your message..."
                 />
               </div>
 
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div className="bg-green-500/20 border border-green-500 text-green-400 px-4 py-3 rounded-2xl text-sm">
+                  ✓ Thank you! Your message has been sent successfully. We'll get back to you at awezowsunnet@gmail.com soon!
+                </div>
+              )}
+              
+              {submitStatus === "error" && (
+                <div className="bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded-2xl text-sm">
+                  ✗ Oops! Something went wrong. Please try again or email us directly at awezowsunnet@gmail.com
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-neutral-900 px-4 sm:px-6 py-3 sm:py-4 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 will-change-transform flex items-center justify-center space-x-2 text-sm sm:text-base"
+                disabled={isSubmitting}
+                className="w-full bg-amber-500 hover:bg-amber-600 text-white px-4 sm:px-6 py-3 sm:py-3.5 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 text-sm sm:text-base mt-6 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                <span>Send Message</span>
-                <Send size={18} />
+                <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                {!isSubmitting && <Send size={18} className="flex-shrink-0" />}
               </button>
             </form>
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-6">
-            <div className="backdrop-blur-lg bg-neutral-800/90 rounded-3xl p-6 sm:p-8 border border-neutral-700/50 shadow-lg">
-              <h3 className="text-white mb-6">Get in touch</h3>
-              <p className="text-neutral-300 mb-8">
+          <div className="space-y-5 sm:space-y-6">
+            <div className="bg-neutral-800 rounded-3xl p-5 sm:p-6 md:p-8 border border-neutral-700 shadow-xl">
+              <h3 className="text-white mb-5 sm:mb-6 text-xl sm:text-2xl">Get in touch</h3>
+              <p className="text-neutral-300 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
                 Have questions about the conference or need more information? 
                 We're here to help!
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4 backdrop-blur-sm bg-neutral-700/50 rounded-2xl p-4 sm:p-6">
-                  <Mail className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+              <div className="space-y-4 sm:space-y-5">
+                <div className="flex items-start gap-3 sm:gap-4 bg-neutral-700/50 rounded-2xl p-4 sm:p-5 border border-neutral-600">
+                  <Mail className="text-amber-500 flex-shrink-0 mt-1" size={20} />
                   <div className="min-w-0 flex-1">
-                    <div className="text-neutral-200 mb-1">Email</div>
+                    <div className="text-white mb-1.5 text-sm sm:text-base">Email</div>
+                    <a
+                      href="mailto:awezowsunnet@gmail.com"
+                      className="text-amber-400 hover:text-amber-300 transition-colors break-words text-sm sm:text-base block"
+                    >
+                      awezowsunnet@gmail.com
+                    </a>
                     <a
                       href="mailto:info@icomaa.org"
-                      className="text-amber-500 hover:text-amber-400 transition-colors break-words text-sm sm:text-base"
+                      className="text-amber-400 hover:text-amber-300 transition-colors break-words text-sm sm:text-base block mt-1"
                     >
                       info@icomaa.org
-                    </a>
-                    <br />
-                    <a
-                      href="mailto:register@icomaa.org"
-                      className="text-amber-500 hover:text-amber-400 transition-colors break-words text-sm sm:text-base"
-                    >
-                      register@icomaa.org
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 backdrop-blur-sm bg-neutral-700/50 rounded-2xl p-4 sm:p-6">
-                  <Phone className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                <div className="flex items-start gap-3 sm:gap-4 bg-neutral-700/50 rounded-2xl p-4 sm:p-5 border border-neutral-600">
+                  <Phone className="text-amber-500 flex-shrink-0 mt-1" size={20} />
                   <div>
-                    <div className="text-neutral-200 mb-1">Phone</div>
+                    <div className="text-white mb-1.5 text-sm sm:text-base">Phone</div>
                     <a
                       href="tel:+1234567890"
-                      className="text-amber-500 hover:text-amber-400 transition-colors text-sm sm:text-base"
+                      className="text-amber-400 hover:text-amber-300 transition-colors text-sm sm:text-base block"
                     >
                       +1 (234) 567-890
                     </a>
-                    <p className="text-neutral-400 text-sm mt-1">
+                    <p className="text-neutral-400 text-xs sm:text-sm mt-1.5">
                       Mon-Fri, 9:00 AM - 5:00 PM
                     </p>
                   </div>
@@ -152,20 +218,20 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="backdrop-blur-lg bg-gradient-to-br from-amber-600 to-amber-700 rounded-3xl p-6 sm:p-8 border border-amber-500/20 shadow-lg text-white">
-              <h3 className="text-white mb-4">Office Hours</h3>
-              <div className="space-y-2 text-sm sm:text-base">
+            <div className="bg-amber-500 rounded-3xl p-5 sm:p-6 md:p-8 border border-amber-400 shadow-xl">
+              <h3 className="text-neutral-900 mb-4 sm:mb-5 text-xl sm:text-2xl">Office Hours</h3>
+              <div className="space-y-2.5 sm:space-y-3 text-sm sm:text-base">
                 <div className="flex justify-between gap-4">
-                  <span className="text-amber-100">Monday - Friday</span>
-                  <span className="text-right">9:00 AM - 5:00 PM</span>
+                  <span className="text-neutral-900/90">Monday - Friday</span>
+                  <span className="text-right text-neutral-900">9:00 AM - 5:00 PM</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span className="text-amber-100">Saturday</span>
-                  <span className="text-right">10:00 AM - 2:00 PM</span>
+                  <span className="text-neutral-900/90">Saturday</span>
+                  <span className="text-right text-neutral-900">10:00 AM - 2:00 PM</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span className="text-amber-100">Sunday</span>
-                  <span className="text-right">Closed</span>
+                  <span className="text-neutral-900/90">Sunday</span>
+                  <span className="text-right text-neutral-900">Closed</span>
                 </div>
               </div>
             </div>
@@ -173,8 +239,8 @@ export function Contact() {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 text-center backdrop-blur-lg bg-neutral-800/50 rounded-3xl p-6 border border-neutral-700/50">
-          <p className="text-neutral-400">
+        <div className="mt-12 sm:mt-16 text-center bg-neutral-800 rounded-3xl p-5 sm:p-6 border border-neutral-700 shadow-xl">
+          <p className="text-neutral-400 text-sm sm:text-base">
             © 2024 ICOMAA Seminar Series. All rights reserved.
           </p>
         </div>

@@ -53,7 +53,7 @@ export function NextSeminar() {
   }, [targetDate]);
 
   return (
-    <section id="next-seminar" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <section id="next-seminar" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="max-w-5xl mx-auto">
         <div className="backdrop-blur-xl bg-gradient-to-br from-white/90 to-white/70 rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-6 md:p-10 lg:p-12 border border-white/40 shadow-2xl">
           

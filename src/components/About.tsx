@@ -3,7 +3,7 @@ import { Award, BookOpen, Globe, Target } from "lucide-react";
 export function About() {
   const features = [
     {
-      icon: Target,
+       icon: Target,
       title: "Our Mission",
       description: "To advance mathematical research and foster collaboration among researchers worldwide.",
     },

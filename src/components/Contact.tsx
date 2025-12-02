@@ -186,13 +186,13 @@ export function Contact() {
                   <div className="min-w-0 flex-1">
                     <div className="text-white mb-1.5 text-sm sm:text-base">Email</div>
                     <a
-                      href="mailto:awezowsunnet@gmail.com"
+                      href="mailto:icomaa.info@gmail.com"
                       className="text-amber-400 hover:text-amber-300 transition-colors break-words text-sm sm:text-base block"
                     >
                       icomaa.info@gmail.com
                     </a>
                     <a
-                      href="mailto:info@icomaa.org"
+                      href="mailto:awezowsunnet@gmail.com"
                       className="text-amber-400 hover:text-amber-300 transition-colors break-words text-sm sm:text-base block mt-1"
                     >
                       awezowsunnet@gmail.com
@@ -205,7 +205,7 @@ export function Contact() {
                   <div>
                     <div className="text-white mb-1.5 text-sm sm:text-base">Phone</div>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+905526656430"
                       className="text-amber-400 hover:text-amber-300 transition-colors text-sm sm:text-base block"
                     >
                       +90 (552) 665-64-30
@@ -246,7 +246,7 @@ export function Contact() {
         {/* Footer */}
         <div className="mt-12 sm:mt-16 text-center bg-neutral-800 rounded-3xl p-5 sm:p-6 border border-neutral-700 shadow-xl">
           <p className="text-neutral-400 text-sm sm:text-base">
-            © 2025-2026 ICOMAA Seminar Series. All rights reserved.
+           © 2025-2026 ICOMAA Seminar Series. All rights reserved.
           </p>
         </div>
       </div>

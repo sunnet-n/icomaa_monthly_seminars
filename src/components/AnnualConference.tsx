@@ -2,6 +2,7 @@ import { Calendar, Download, MapPin, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ImageModal } from "./ImageModal";
 import { useState } from "react";
+import brochureImage from "figma:asset/365251c5af40fc60ef62fa6786fe15f88ac87532.png";
 
 export function AnnualConference() {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
@@ -14,7 +15,7 @@ export function AnnualConference() {
           Annual Event
         </h2>
           <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 mb-4">
-            ICOMAA 9th Conference 2026
+            ICOMAA Annual Conference 2026
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Join us for the biggest mathematics event of the year
@@ -27,26 +28,19 @@ export function AnnualConference() {
             <div 
               className="aspect-[3/4] bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-3xl shadow-2xl mb-6 relative overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform"
               onClick={() => setModalImage({ 
-                src: "images/seminer_brochure.jpg", 
-                alt: "Conference Brochure" 
+                src: "images/seminer_brochure.jpg",
+                alt: "ICOMAA 2026 Conference Brochure" 
               })}
             >
               <div className="absolute inset-0 overflow-hidden">
                 <ImageWithFallback
-                  src="images/seminer_brochure.jpg"
-                  alt="Conference Brochure"
-                  className="w-full h-full object-cover object-center opacity-90 scale-105"
+                  src= "images/seminer_brochure.jpg"
+                  alt="ICOMAA 2026 Conference Brochure"
+                  className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                <h3 className="text-white mb-1 sm:mb-2 drop-shadow-lg text-xl sm:text-2xl">9th International Conference 2026</h3>
-                <p className="text-white drop-shadow-md text-xs sm:text-sm">May 6-8, 2026</p>
-              </div>
             </div>
-
-            
 
             <button className="w-full bg-gradient-to-r from-orange-600 to-pink-600 hover:from-orange-600 hover:to-pink-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 will-change-transform text-sm sm:text-base">
               <a  href="https://2025.icomaas.com/"

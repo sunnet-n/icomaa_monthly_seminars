@@ -40,33 +40,44 @@ export function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fadeIn"
-      onClick={onClose}
-    >
-      {/* Blurred Background */}
-      <div className="absolute inset-0 backdrop-blur-2xl bg-black/70"></div>
-
-      {/* Image Container */}
+    <>
+      {/* Background Overlay */}
       <div
-        className="relative max-w-4xl w-full max-h-[85vh] animate-scaleIn"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute -top-16 -right-4 z-10 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 will-change-transform transition-all"
-          aria-label="Close"
-        >
-          <X size={24} className="text-slate-900" />
-        </button>
+        className="fixed inset-0 z-[100] backdrop-blur-2xl bg-black/70 animate-fadeIn"
+        onClick={onClose}
+      />
 
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-full object-contain rounded-3xl shadow-2xl gpu-accelerated"
-          loading="lazy"
-        />
+      {/* Scrollable Container */}
+      <div className="fixed inset-0 z-[101] overflow-y-auto overflow-x-hidden p-4 sm:p-8">
+        <div className="min-h-full flex items-center justify-center py-12">
+          {/* Content Wrapper */}
+          <div
+            className="relative max-w-5xl w-full animate-scaleIn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={onClose}
+                className="w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all"
+                aria-label="Close"
+              >
+                <X size={24} className="text-slate-900" />
+              </button>
+            </div>
+
+            {/* Image */}
+            <div className="w-full">
+              <img
+                src={src}
+                alt={alt}
+                className="w-full h-auto rounded-3xl shadow-2xl"
+                loading="lazy"
+                style={{ maxWidth: '100%', height: 'auto' }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -98,6 +109,6 @@ export function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
           animation: scaleIn 0.3s ease-out;
         }
       `}</style>
-    </div>
+    </>
   );
 }

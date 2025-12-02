@@ -89,7 +89,7 @@ export function Hero() {
           </div>
 
           {/* Stats/Features */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12 max-w-3xl mx-auto">
+                    <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12 max-w-3xl mx-auto">
             <div className="backdrop-blur-md bg-gradient-to-br from-white/10 to-white/5 border border-white/20 rounded-2xl p-3 sm:p-6 hover:scale-105 transition-transform">
               <div className="text-2xl sm:text-4xl text-blue-400 mb-1 sm:mb-2">10+</div>
               <div className="text-white/80 text-xs sm:text-sm">Invited Speakers</div>

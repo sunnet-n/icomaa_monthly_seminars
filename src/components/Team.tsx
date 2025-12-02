@@ -9,6 +9,8 @@ export function Team() {
     src: string;
     alt: string;
   } | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const teamImages = [
     {
@@ -44,6 +46,16 @@ export function Team() {
     },
     {
       id: 3,
+      name: "Dr. Mehmet Özükanar",
+      role: "Conference Program Coordinator",
+      affiliation: "Yildiz Technical University",
+      photo:
+        "images/mehmet.jpg",
+      email: "mehmet.ozknr13@gmail.com",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      id: 4,
       name: "Dr. Elif Demir",
       role: "Logistics Coordinator",
       affiliation: "Yildiz Technical University",
@@ -66,6 +78,32 @@ export function Team() {
         (prev - 1 + teamImages.length) % teamImages.length,
     );
   }, [teamImages.length]);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      prevImage();
+    }
+  };
 
   return (
     <section
@@ -155,6 +193,9 @@ export function Team() {
                 alt: teamImages[currentImageIndex].caption,
               })
             }
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             <ImageWithFallback
               src={teamImages[currentImageIndex].url}
@@ -269,7 +310,7 @@ export function Team() {
           </h3>
           <p className="text-neutral-300 mb-4 max-w-2xl mx-auto text-xs sm:text-sm">
             We're always looking for passionate individuals to
-            help us organize amazing mathematical events. Send a mail us if you want to be part of our community!
+            help us organize amazing mathematical events. Send us an email if you want to be part of our community!
           </p>
           {/*<button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full hover:scale-105 transition-all shadow-xl text-sm">
             Become a Volunteer

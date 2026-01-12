@@ -227,12 +227,12 @@ export function Contact() {
                     Explore more about our seminars and events
                   </p>
                   <a
-                    href="https://2025.icomaas.com/"
+                    href="https://2026.icomaas.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white px-5 py-2.5 rounded-full transition-all hover:scale-105 shadow-lg text-sm sm:text-base"
                   >
-                    <span>2025.icomaas.com</span>
+                    <span>2026.icomaas.com</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>

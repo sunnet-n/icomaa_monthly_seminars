@@ -35,6 +35,30 @@ export function PastConferences() {
   const pastSeminars = [
         {
       id: 1,
+      title: "Modeling the Role of Immune Cells in Resistance to Oncolotic Viral Therapy with Time Delays",
+      date: "December 3, 2025",
+      speaker: "Prof. Dr. Sophia Jang",
+      position: "Department of Mathematics and Statistics Texas Tech University,USA",
+      speakerPhoto: "images/Sophia.jpg"
+    },
+     {
+      id: 2,
+     title: "Discrete Operators in Discrete Function Spaces",
+      date: "Decembe 3, 2025",
+      speaker: "Prof. Dr. Nurzhan BOKAYEV",
+      position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
+      speakerPhoto: "images/photo_nurzhan.jpg"
+    },
+     {
+      id: 3,
+       title: "Boundedness and Compactness of some operators in Morrey-type space",
+      date: "Decembe 3, 2025",
+      speaker: " Dr. Dauren MATIN",
+      position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
+      speakerPhoto: "images/photo_matin.jpg"
+    },
+     {
+      id: 4,
       title: "Bernstein-Walch Theorem and on the Uniqueness Theorems of Entire Functions",
       date: "October 15, 2025",
       speaker: "Prof. Dr. Djebbar BACHIR",
@@ -42,7 +66,7 @@ export function PastConferences() {
       speakerPhoto: "images/photo_speaker1.jpg"
     },
     {
-      id: 2,
+      id: 5,
       title: "Frequency Estimation Using Discrete Fourier Transform(DFT)",
       date: "December 4, 2024",
       speaker: "Prof. Dr. Ahmet SERBES",
@@ -53,19 +77,11 @@ export function PastConferences() {
   const upcomingSeminars = [
     {
       id: 1,
-      title: "Discrete Operators in Discrete Function Spaces",
-      date: "Decembe 3, 2025",
-      speaker: "Prof. Dr. Nurzhan BOKAYEV",
-      position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
-      speakerPhoto: "images/photo_nurzhan.jpg"
-    },
-    {
-      id: 2,
-      title: "Boundedness and Compactness of some operators in Morrey-type space",
-      date: "Decembe 3, 2025",
-      speaker: " Dr. Dauren MATIN",
-      position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
-      speakerPhoto: "images/photo_matin.jpg"
+      title: "Graph Theory and its Applications",
+      date: "January 21, 2026",
+      speaker: "Prof.Dr. İsmail Naci",
+      position: "Uludağ Üniversity, Turkey",
+      speakerPhoto: "images/cngul.jpg"
     }
   ];
   const nextImage = useCallback(() => {

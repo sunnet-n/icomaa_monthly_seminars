@@ -44,7 +44,7 @@ export function PastConferences() {
      {
       id: 2,
      title: "Discrete Operators in Discrete Function Spaces",
-      date: "Decembe 3, 2025",
+      date: "December 3, 2025",
       speaker: "Prof. Dr. Nurzhan BOKAYEV",
       position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
       speakerPhoto: "images/photo_nurzhan.jpg"
@@ -52,7 +52,7 @@ export function PastConferences() {
      {
       id: 3,
        title: "Boundedness and Compactness of some operators in Morrey-type space",
-      date: "Decembe 3, 2025",
+      date: "December 3, 2025",
       speaker: " Dr. Dauren MATIN",
       position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
       speakerPhoto: "images/photo_matin.jpg"

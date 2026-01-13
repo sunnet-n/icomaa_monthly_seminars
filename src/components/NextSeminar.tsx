@@ -158,7 +158,7 @@ export function NextSeminar() {
 
           {/* Join Meeting Button */}
           <div className="text-center mt-6 sm:mt-8 md:mt-10">
-            <a  href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c"
+            <a  href="https://online.yildiz.edu.tr/joinmeeting?meetingid=d9136dc8-c48d-49a3-977c-fc606ea66b39"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full hover:scale-105 shadow-xl hover:shadow-2xl active:scale-95 will-change-transform text-sm sm:text-base"
@@ -268,7 +268,7 @@ export function NextSeminar() {
 
           {/* Join Meeting Button */}
           <div className="text-center mt-6 sm:mt-8 md:mt-10">
-            <a  href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c"
+            <a  href="https://online.yildiz.edu.tr/joinmeeting?meetingid=90191fd0-0239-40c1-88eb-23a3db78ca51"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full hover:scale-105 shadow-xl hover:shadow-2xl active:scale-95 will-change-transform text-sm sm:text-base"

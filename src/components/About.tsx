@@ -1,21 +1,23 @@
 import { Award, BookOpen, Globe, Target, Users, TrendingUp, Calendar } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
+import { ImageModal } from "./ImageModal";
 
 export function About() {
   const reduceMotion = useReducedMotion();
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
 
   const features = [
-    {
-      icon: Target,
+   {
+       icon: Target,
       title: "Our Mission",
       description: "To advance mathematical research and foster collaboration among researchers worldwide.",
     },
     {
       icon: Globe,
       title: "Global Reach",
-      description: "Connecting mathematicians and researchers from over 40 countries across continents.",
+      description: "Connecting mathematicians and researchers from over 20 countries across continents.",
     },
     {
       icon: BookOpen,
@@ -36,94 +38,75 @@ export function About() {
       description: "ICOMAA was established with the vision of creating a global mathematics community.",
       website: "https://2018.icomaas.com",
       images: [
-        {
-          url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-          caption: "ICOMAA Foundation Ceremony 2018"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
-          caption: "Founding Team Meeting"
-        }
+        { url: "/images/2018.jpg", caption: "ICOMAA-2018 Brochure", orientation: "portrait" },
+        { url: "/images/2018(1).jpeg", caption: "Keynote Presentation", orientation: "landscape" },
+        { url: "/images/2018(2).jpeg", caption: "Footages from the event-1", orientation: "landscape" },
+        { url: "/images/2018(3).jpeg", caption: "Footages from the event-2", orientation: "landscape" },
+        { url: "/images/2018(4).jpeg", caption: "Certificate Presentation Ceremony", orientation: "landscape" }
       ]
     },
     {
       year: "2019",
-      title: "First Conference",
-      description: "Hosted our inaugural conference with 200+ participants from 25 countries.",
+      title: "2-nd Annual Conference ",
+      description: "Hosted our international conference with 200+ participants from 15 countries.",
       website: "https://2019.icomaas.com",
       images: [
-        {
-          url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-          caption: "Opening Ceremony 2019"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&q=80",
-          caption: "First Conference Participants"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80",
-          caption: "Keynote Presentation"
-        }
+        { url: "/images/2019.jpg", caption: "ICOMAA-2019 Brochure", orientation: "portrait" }
       ]
     },
     {
       year: "2020",
-      title: "Digital Expansion",
+      title: "Transferred to Online Conferencing",
       description: "Launched online seminars and webinars, reaching a global audience.",
       website: "https://2020.icomaas.com",
       images: [
-        {
-          url: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=800&q=80",
-          caption: "Online Seminar Series Launch"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-          caption: "Virtual Conference Setup"
-        }
+        { url: "/images/2020.jpg", caption: "ICOMAA-2020 Brochure" },
+        { url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80", caption: "Virtual Conference Setup" }
       ]
     },
     {
       year: "2023",
-      title: "Record Participation",
-      description: "Over 500 researchers joined our annual conference and weekly seminars.",
+      title: "Conference Organized in a Hybrid (Online & In-Person) Format",
+      description: "The hybrid format expanded our community by enabling broader global participation.",
       website: "https://2023.icomaas.com",
       images: [
-        {
-          url: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80",
-          caption: "Record Breaking Conference 2023"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-          caption: "Full Auditorium"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&q=80",
-          caption: "Networking Sessions"
-        }
+        { url: "/images/2023.jpg", caption: "ICOMAA-2023 Brochure" },
+        { url: "/images/2022-1.jpeg", caption: "Opening Speech",orientation: "landscape" },
+        { url: "/images/2022-2.jpeg", caption: "Photo-2",orientation: "portrait" },
+        { url: "/images/2023-12.jpeg", caption: "Commemorating the Event" },
+        { url: "/images/2023-13.jpeg", caption: "First Day of the Conference" },
+        { url: "/images/2023-14.jpeg", caption: "Event Photo-2" },
+        { url: "/images/2023-15.jpeg", caption: "Parallel Sessions" }
       ]
     },
     {
       year: "2024",
-      title: "Continued Growth",
+      title: "ICOMAA-2024 Brochure",
       description: "Expanded to include specialized tracks and collaborative research initiatives.",
       website: "https://2024.icomaas.com",
       images: [
-        {
-          url: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&q=80",
-          caption: "2024 Conference Highlights"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
-          caption: "Specialized Track Sessions"
-        }
+        { url: "/images/2026.png", caption: "ICOMAA-2024 Brochure" },
+        { url: "/images/2024-11.jpeg", caption: "Footage-1" },
+        { url: "/images/2024-12.jpeg", caption: "Footage-2" }
+      ]
+    },
+    {
+      year: "2025",
+      title: "ICOMAA-2026 Brochure", 
+      description: "Expanded to include specialized tracks and collaborative research initiatives.",
+      website: "https://2024.icomaas.com",
+      images: [
+        { url: "/images/2025.png", caption: "ICOMAA-2025 Brochure" },
+        { url: "/images/2025-12.jpeg", caption: "Workshop" },
+        { url: "/images/2025-13.jpeg" }
       ]
     }
   ];
 
   const stats = [
-    { icon: Users, number: "2000+", label: "Total Participants" },
-    { icon: Globe, number: "50+", label: "Countries" },
-    { icon: BookOpen, number: "100+", label: "Seminars Held" },
+    { icon: Users, number: "1000+", label: "Total Participants" },
+    { icon: Globe, number: "30+", label: "Countries" },
+    { icon: BookOpen, number: "50+", label: "Seminars Held" },
     { icon: TrendingUp, number: "98%", label: "Satisfaction Rate" }
   ];
 
@@ -155,7 +138,7 @@ export function About() {
       >
         <motion.h2 
           variants={itemVariants}
-          className="text-slate-800 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl"
+          className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl"
         >
           About ICOMAA
         </motion.h2>
@@ -299,70 +282,98 @@ export function About() {
         </motion.div>
       </motion.div>
 
-      {/* Year Gallery Modal */}
+      {/* YEAR GALLERY MODAL */}
       {selectedYear !== null && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelectedYear(null)}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="relative max-w-5xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-3xl p-6 sm:p-8"
+            className="relative max-w-3xl w-full max-h-[90vh] bg-white rounded-3xl overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedYear(null)}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors z-10"
-            >
-              ✕
-            </button>
-
-            {/* Year Header */}
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <Calendar className="text-purple-600" size={28} />
-                <h3 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                  {timeline[selectedYear].year}
-                </h3>
-              </div>
-              <h4 className="text-2xl font-semibold text-slate-900 mb-2">{timeline[selectedYear].title}</h4>
-              <p className="text-slate-600 text-lg mb-4">{timeline[selectedYear].description}</p>
-              
-              {/* Website Link */}
-              <a
-                href={timeline[selectedYear].website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 transition-all hover:scale-105 shadow-md"
+            {/* Close button - Fixed at top */}
+            <div className="flex-shrink-0 flex justify-end p-4 pb-4">
+              <button
+                onClick={() => setSelectedYear(null)}
+                className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center shadow-lg transition-colors"
               >
-                <Globe size={16} />
-                <span>Visit {timeline[selectedYear].year} Website</span>
-              </a>
+                ✕
+              </button>
             </div>
 
-            {/* Image Gallery */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {timeline[selectedYear].images.map((image, imgIndex) => (
-                <div key={imgIndex} className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                  <img
-                    src={image.url}
-                    alt={image.caption}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                    <p className="text-white font-medium">{image.caption}</p>
-                  </div>
+            {/* SCROLLABLE CONTENT */}
+            <div className="flex-1 overflow-y-auto px-4 sm:px-6 pt-8 pb-16">
+              {/* Year Header */}
+              <div className="mb-4">
+                <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                  <Calendar className="text-purple-600" size={20} />
+                  <h3 className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                    {timeline[selectedYear].year}
+                  </h3>
                 </div>
-              ))}
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 mb-1">
+                  {timeline[selectedYear].title}
+                </h4>
+                <p className="text-slate-600 text-sm mb-3">
+                  {timeline[selectedYear].description}
+                </p>
+                
+                {/* Website Link */}
+                <a
+                  href={timeline[selectedYear].website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs hover:from-purple-700 hover:to-pink-700 transition-all hover:scale-105 shadow-md"
+                >
+                  <Globe size={14} />
+                  <span>Visit {timeline[selectedYear].year} Website</span>
+                </a>
+              </div>
+
+              {/* IMAGE GALLERY - Smaller rows */}
+              <div className="grid grid-cols-2 auto-rows-[140px] gap-3 mb-8">
+                {timeline[selectedYear].images.map((image, i) => {
+                  const isPortrait = image.orientation === "portrait";
+                  return (
+                    <div
+                      key={i}
+                      className={`group relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer ${
+                        isPortrait ? "row-span-2" : "row-span-1"
+                      }`}
+                      onClick={() => setModalImage({ src: image.url, alt: image.caption })}
+                    >
+                      <img
+                        src={image.url}
+                        alt={image.caption}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-end p-3 pb-4 pr-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p className="text-white font-medium text-xs text-right">{image.caption}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
         </motion.div>
+      )}
+
+      {/* IMAGE MODAL */}
+      {modalImage && (
+        <ImageModal
+          src={modalImage.src}
+          alt={modalImage.alt}
+          isOpen={!!modalImage}
+          onClose={() => setModalImage(null)}
+        />
       )}
     </section>
   );

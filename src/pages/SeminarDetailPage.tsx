@@ -66,7 +66,7 @@ export function SeminarDetailPage() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
                 {/* Speaker Photo */}
                 <div className="flex-shrink-0">
-                  <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-3xl shadow-xl ring-4 ring-purple-500/20 overflow-hidden bg-slate-100">
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-3xl shadow-xl ring-4 ring-natural-500/20 overflow-hidden bg-slate-100">
                     {seminar.speakerPhoto ? (
                       <img
                         src={seminar.speakerPhoto}

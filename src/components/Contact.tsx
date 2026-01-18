@@ -65,13 +65,9 @@ export function Contact() {
   return (
     <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-block bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-2 rounded-full text-sm mb-4 shadow-lg">
-            Get in Touch
-          </div>
+       <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 text-3xl sm:text-4xl">Contact Us</h2>
         </div>
-
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Contact Form */}
           <div className="backdrop-blur-xl bg-white/90 rounded-3xl p-5 sm:p-6 md:p-8 border border-blue-200/50 shadow-xl">

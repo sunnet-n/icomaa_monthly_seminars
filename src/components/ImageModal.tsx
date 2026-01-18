@@ -43,26 +43,26 @@ export function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
     <>
       {/* Background Overlay */}
       <div
-        className="fixed inset-0 z-[100] backdrop-blur-2xl bg-black/70 animate-fadeIn"
+        className="fixed inset-0 z-[100] backdrop-blur-md bg-black/80 animate-fadeIn"
         onClick={onClose}
       />
 
       {/* Scrollable Container */}
-      <div className="fixed inset-0 z-[101] overflow-y-auto overflow-x-hidden p-4 sm:p-8">
-        <div className="min-h-full flex items-center justify-center py-12">
+      <div className="fixed inset-0 z-[101] overflow-y-auto overflow-x-hidden p-4">
+        <div className="min-h-full flex items-center justify-center py-8">
           {/* Content Wrapper */}
           <div
-            className="relative max-w-5xl w-full animate-scaleIn"
+            className="relative max-w-2xl w-full animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
-            <div className="flex justify-end mb-4">
+            <div className="flex justify-end mb-3">
               <button
                 onClick={onClose}
-                className="w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all"
+                className="w-10 h-10 bg-white/95 hover:bg-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all"
                 aria-label="Close"
               >
-                <X size={24} className="text-slate-900" />
+                <X size={20} className="text-slate-900" />
               </button>
             </div>
 
@@ -71,10 +71,17 @@ export function ImageModal({ src, alt, isOpen, onClose }: ImageModalProps) {
               <img
                 src={src}
                 alt={alt}
-                className="w-full h-auto rounded-3xl shadow-2xl"
+                className="w-full h-auto max-h-[70vh] object-contain rounded-2xl shadow-2xl bg-white"
                 loading="lazy"
-                style={{ maxWidth: '100%', height: 'auto' }}
               />
+              {/* Caption */}
+              {alt && (
+                <div className="mt-3 text-center">
+                  <p className="text-white text-sm sm:text-base bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 inline-block">
+                    {alt}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

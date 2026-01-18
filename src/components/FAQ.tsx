@@ -125,21 +125,6 @@ export function FAQ() {
             </motion.div>
           ))}
         </motion.div>
-
-        <motion.div 
-          variants={itemVariants}
-          className="mt-12 text-center"
-        >
-          <p className="text-slate-600 mb-4">
-            Still have questions?
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all"
-          >
-            Contact Us
-          </a>
-        </motion.div>
       </motion.div>
     </section>
   );

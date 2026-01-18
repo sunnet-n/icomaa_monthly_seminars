@@ -18,9 +18,7 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, label: "Facebook", href: "#" },
-    { icon: Twitter, label: "Twitter", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/prof-dr-yusuf-zeren-3986b434/" },
     { icon: Instagram, label: "Instagram", href: "#" },
   ];
 
@@ -114,29 +112,20 @@ export function Footer() {
                 <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full"></span>
               </h3>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-600 group">
-                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center flex-shrink-0 group-hover:from-blue-100 group-hover:to-cyan-100 transition-all duration-300">
-                    <MapPin size={16} className="text-blue-600" />
-                  </div>
-                  <span className="leading-relaxed">
-                    Department of Mathematics<br />
-                    University Campus
-                  </span>
-                </li>
                 <li className="flex items-center gap-3 text-slate-600 group">
                   <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center flex-shrink-0 group-hover:from-blue-100 group-hover:to-cyan-100 transition-all duration-300">
                     <Mail size={16} className="text-blue-600" />
                   </div>
-                  <a href="mailto:info@icomaa.org" className="hover:text-blue-600 transition-colors duration-300">
-                    info@icomaa.org
+                  <a href="mailto:icomaa.info@gmail.com" className="hover:text-blue-600 transition-colors duration-300">
+                    icomaa.info@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3 text-slate-600 group">
                   <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center flex-shrink-0 group-hover:from-blue-100 group-hover:to-cyan-100 transition-all duration-300">
                     <Phone size={16} className="text-blue-600" />
                   </div>
-                  <a href="tel:+1234567890" className="hover:text-blue-600 transition-colors duration-300">
-                    +1 (234) 567-890
+                  <a href="tel:+905526656430" className="hover:text-blue-600 transition-colors duration-300">
+                    +90 (552) 665-64-30
                   </a>
                 </li>
               </ul>

@@ -28,20 +28,24 @@ export function Seminars() {
 
   const images = [
     {
-      url: "https://images.unsplash.com/photo-1526045004414-3e7ed02f9ca1?w=1200&q=80",
-      caption: "ICOMAA 2023 Opening Ceremony"
+      url: "images/25-24_event.jpg",
+      caption: "ICOMAA 2025&2024 "
     },
     {
-      url: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=1200&q=80",
+      url: "images/(1).jpg",
       caption: "Keynote Presentation"
     },
     {
-      url: "https://images.unsplash.com/photo-1760420940953-3958ad9f6287?w=1200&q=80",
+      url: "images/(2).jpg",
       caption: "Panel Discussion"
     },
     {
-      url: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=1200&q=80",
-      caption: "Networking Event"
+      url: "images/25-24_event2.jpg",
+      caption: "Insightful Seminar Talk"
+    },
+    {
+      url: "images/25-24_event1.jpg",
+      caption: "Our Collaborators David C. Uribe & Scott Rodney"
     }
   ];
 
@@ -115,7 +119,7 @@ export function Seminars() {
       >
         <motion.h2 
           variants={itemVariants}
-          className="text-slate-800 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl"
+          className="text-purple-500 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl"
         >
           Seminars
         </motion.h2>
@@ -130,8 +134,8 @@ export function Seminars() {
               onClick={() => setActiveTab("upcoming")}
               className={`px-4 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 text-xs sm:text-base whitespace-nowrap ${
                 activeTab === "upcoming"
-                  ? "bg-slate-700 text-white shadow-md"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md"
+                  : "text-natural-600 hover:text-natural-900"
               }`}
             >
               Upcoming Seminars
@@ -140,7 +144,7 @@ export function Seminars() {
               onClick={() => setActiveTab("past")}
               className={`px-4 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 text-xs sm:text-base whitespace-nowrap ${
                 activeTab === "past"
-                  ? "bg-slate-700 text-white shadow-md"
+                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md"
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -188,7 +192,7 @@ export function Seminars() {
                     <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-slate-900/5" />
 
                     {/* Icon/Photo */}
-                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl shadow-md ring-2 ring-purple-500/40 overflow-hidden transition-transform group-hover:scale-110">
+                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl shadow-md ring-2 ring-natural-500/40 overflow-hidden transition-transform group-hover:scale-110">
                       <ImageWithFallback
                         src={seminar.speakerPhoto}
                         alt={seminar.speaker}

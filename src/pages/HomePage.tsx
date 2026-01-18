@@ -3,7 +3,6 @@ import { NextSeminar } from "../components/NextSeminar";
 import { ForumIntro } from "../components/ForumIntro";
 import { ResearchAreas } from "../components/ResearchAreas";
 import { FAQ } from "../components/FAQ";
-import { Newsletter } from "../components/Newsletter";
 import { useEffect } from "react";
 
 export function HomePage() {
@@ -20,7 +19,6 @@ export function HomePage() {
       <NextSeminar />
       <ResearchAreas />
       <FAQ />
-      <Newsletter />
     </>
   );
 }

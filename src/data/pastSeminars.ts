@@ -23,12 +23,12 @@ export const pastSeminars: PastSeminar[] = [
     speaker: "Prof.Dr. İsmail NACİ",
     position: "Professor of Applied Mathematics, Uludağ University, Turkey",
     speakerBio: "Prof. Dr. İsmail Naci Cangül is a full professor of mathematics at Uludağ University, Turkey, with research interests in graph, number theories and their applications. He has published extensively in international journals, supervised numerous MSc and PhD students, and has served in various academic and administrative leadership positions.",
-    speakerPhoto: "images/cngul.jpg",
+    speakerPhoto: "/images/cngul.jpg",
     abstract: [
       "Graph theory is one of the most vibrant and widely studied branches of mathematics, driven by its rich structure and broad range of real-world applications. In the first part of this talk, we survey selected applications of graph-theoretic ideas across modern scientific and technological settings. In the second part, we introduce a new topological invariant, the Omega index (Ω), and develop its fundamental properties. We then demonstrate how Ω can be used to address several questions in combinatorics and graph theory, including progress on previously open problems.",
     ],
     isUpcoming: true,
-    meetingLink: "https://online.yildiz.edu.tr/joinmeeting?meetingid=upcoming1"
+    meetingLink: "https://online.yildiz.edu.tr/joinmeeting?meetingid=d99ea6e3-ab7c-40ee-81dd-331cf2af63b9"
   },
   {
     id: 6,
@@ -39,91 +39,72 @@ export const pastSeminars: PastSeminar[] = [
     speaker: "Prof. Robert Barrio",
     position: "Professor of Applied Mathematics, University of Zaragoza, Spain",
     speakerBio: "Professor Roberto Barrio is a distinguished Full Professor of Applied Mathematics at the University of Zaragoza. His broad expertise spans dynamical systems, mathematical modeling, computational dynamics, and biomathematics. A prolific researcher with more than 120 published works and active leadership roles on several international journal editorial boards, Prof. Barrio is a leading voice in contemporary applied mathematics.",
-    speakerPhoto: "images/RBarrio.jpg",
+    speakerPhoto: "/images/RBarrio.jpg",
     abstract: [
       "Join us for an exploration of how differential geometry and topology inform modern deep learning architectures. We will cover graph neural networks, equivariant networks, and manifold learning.",
       "The seminar will showcase applications in scientific computing, drug discovery, and 3D computer vision, demonstrating how geometric priors enhance model performance and interpretability."
     ],
     isUpcoming: false,
-    meetingLink: "https://online.yildiz.edu.tr/joinmeeting?meetingid=upcoming2"
   },
   {
     id: 1,
-    title: "Computational Methods in Differential Equations",
-    date: "September 15, 2023",
+    title: "Boundedness, Regularity, and Topological Properties in Function Spaces",
+    date: "January 14, 2026",
     time: "2:00 PM (GMT+3)",
-    location: "Main Auditorium",
-    speaker: "Dr. Maria Rodriguez",
-    position: "Professor of Mathematics, Stanford University",
-    speakerBio: "Leading researcher in numerical methods for partial differential equations with over 20 years of experience. Dr. Rodriguez has published more than 100 papers in top-tier journals and has received numerous awards including the SIAM Fellowship and the AWM-SIAM Sonia Kovalevsky Prize.",
-    speakerPhoto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    location: "Zoom Meeting",
+    speaker: "Dr. Waqar AFZAL",
+    position: "Abdus Salam School of Mathematical Sciences Lahore, Pakistan",
+    speakerBio: "Dr. Waqar Afzal is an accomplished mathematician and researcher specializing in harmonic analysis, partial differential equations, operator theory, and related areas. He has delivered invited talks and lectures at international institutions  and conferences, presenting advanced topics ranging from regularity theory of elliptic and parabolic equations to stochastic frameworks for dynamical systems. With a strong record of high-impact publications and experience teaching and communicating complex mathematical ideas, Dr. Afzal is a clear and engaging online speaker who effectively bridges rigorous theory with current research developments for a broad academic audience.",
+    speakerPhoto: "/images/Waqar.jpeg",
     abstract: [
-      "This seminar explored advanced computational techniques for solving differential equations that arise in various scientific and engineering applications. The presentation covered finite element methods, spectral methods, and modern adaptive algorithms.",
-      "Special emphasis was placed on stability analysis, convergence properties, and practical implementation considerations. The session included demonstrations of state-of-the-art software tools and discussed recent breakthroughs in handling stiff systems and multiscale problems."
+      " In this talk, we primarily discuss the boundedness of the Bessel–Riesz operator in variable Herz spaces, along with regularity results for divergence-form elliptic equations. We also present several topological properties of a newly defined scale of function spaces, which are based on the summability and integrability characteristics of Zygmund spaces with variable growth.",
     ],
     isUpcoming: false
   },
   {
     id: 2,
-    title: "Topology and Its Applications in Data Science",
-    date: "August 22, 2023",
-    time: "3:30 PM (GMT+3)",
-    location: "Conference Hall B",
-    speaker: "Dr. James Chen",
-    position: "Research Director, MIT Computer Science and AI Laboratory",
-    speakerBio: "Pioneering work in topological data analysis and persistent homology. Dr. Chen's research bridges pure mathematics and machine learning, with applications in computer vision, natural language processing, and biomedical data analysis. He is a recipient of the NSF CAREER Award.",
-    speakerPhoto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    title: "Modeling the Role of Immune Cells in Resistance to Oncolotic Viral Therapy with Time Delays",
+    date: "December 3, 2025",
+    time: "3:00 PM (GMT+3)",
+    location: "Zoom Meeting",
+    speaker: "Prof. Dr. Sophia JANG",
+    position: "Professor of applied Mathematics, Texas Tech university, USA",
+    speakerBio: "Professor Sophia Jang of Texas Tech University is a leading researcher in mathematical biology and dynamical systems. Her recent work focuses specifically on mathematical oncology, developing sophisticated models to optimize cancer immunotherapies and oncolytic virotherapy. Through collaborations with biomedical researchers, she investigates tumor-immune system interactions, treatment resistance mechanisms, and optimal therapeutic strategies. Professor Jang brings this cutting-edge research into her teaching across calculus, differential equations, and specialized biomathematics courses.",
+    speakerPhoto: "/images/my_photo.jpg",
     abstract: [
-      "This talk presented how topological methods provide powerful tools for analyzing complex data structures. We explored persistent homology, mapper algorithms, and their applications in understanding high-dimensional datasets.",
-      "Real-world applications were demonstrated in fields including genomics, neuroscience, and financial markets. The session highlighted how topological features capture global patterns that traditional statistical methods might miss, opening new avenues for data-driven discovery."
+      "This talk presents an extended tumor-virus interaction model that incorporates immune cells to study their impact on resistance during oncolytic viral therapy (OVT). We investigate how immune cells, which can attack both tumor and viral populations, influence the system's equilibrium and treatment outcomes.Analytical results show that immune cells can prevent full tumor resistance when their proliferation rate exceeds their death rate. A sufficiently high immune recruitment rate introduces a virus-free equilibrium with a reduced overall tumor burden. Numerical simulations further reveal that the viral transmission rate and immune parameters are critical determinants of treatment dynamics.",
+      "However, monotherapy with oncolytic viruses alone proves inadequate for complete tumor eradication, underscoring the necessity for combination approaches. These findings highlight how immune regulation and time delays are pivotal in shaping therapeutic efficacy in OVT."
     ],
     isUpcoming: false
   },
   {
     id: 3,
-    title: "Algebraic Structures in Quantum Computing",
-    date: "July 10, 2023",
-    time: "4:00 PM (GMT+3)",
-    location: "Lecture Theater A",
-    speaker: "Dr. Sarah Williams",
-    position: "Lead Researcher, Cambridge Quantum Computing Centre",
-    speakerBio: "Expert in quantum algorithms and algebraic approaches to quantum information theory. Dr. Williams has made significant contributions to understanding quantum error correction codes and topological quantum computation. She holds a Royal Society University Research Fellowship.",
-    speakerPhoto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    title: "Discrete Operators in Discrete Function Spaces",
+    date: "December 3, 2025",
+    time: "12:00 PM (GMT+3)",
+    location: "Yildiz Technical University",
+    speaker: "Prof. Dr. Nurzhan BOKAYEV",
+    position: "Professor at N. Gumilyov Eurasian National University, Kazakhstan",
+    speakerBio: ["Professor Nurzhan Bokayev holds a Doctorate in Physical and Mathematical Sciences and is a professor in the Department of Fundamental Mathematics at L.N. Gumilyov Eurasian National University in Astana, Kazakhstan.",
+                 "He served as Vice President of the Mathematical Society of Turkic-Speaking Countries (2014–2023), where he led major initiatives, including organizing the 7th Congress of Mathematicians of the Turkic World in Astana in 2017.His primary research interests lie in harmonic analysis and operator theory in function spaces."],
+    speakerPhoto: "/images/photo_nurzhan.jpg",
     abstract: [
-      "The seminar investigated the deep connections between abstract algebra and quantum computing. We discussed group theory, category theory, and their roles in understanding quantum gates, quantum circuits, and quantum algorithms.",
-      "The presentation covered recent developments in quantum error correction using algebraic codes, topological quantum computing approaches, and the mathematical foundations of quantum advantage. Attendees gained insights into how pure mathematical structures enable the development of practical quantum technologies."
+      "The study of discrete analogues of continuous operators is a fundamental area in harmonic analysis. This talk, addresses the discrete generalized fractional-maximal operator and the discrete generalized Riesz potential. Key results to be presented include boundedness conditions for the generalized fractional-maximal function in discrete Lorentz spaces, reduction theorems for discrete Hardy-type inequalities, and estimates for its non-increasing rearrangement. The analysis extends to the characterization of various cones formed by the non-increasing permutations of the discrete Riesz potential.",
     ],
     isUpcoming: false
   },
   {
     id: 4,
-    title: "Stochastic Processes in Financial Mathematics",
-    date: "June 5, 2023",
+    title: "Boundedness and Compactness of some operators in Morrey-type space",
+    date: "December 3, 2025",
     time: "1:30 PM (GMT+3)",
-    location: "Main Auditorium",
-    speaker: "Dr. Robert Kumar",
-    position: "Professor of Mathematical Finance, Oxford University",
-    speakerBio: "Internationally renowned expert in stochastic calculus and financial modeling. Dr. Kumar's research focuses on derivative pricing, risk management, and market microstructure. He has advised major financial institutions and central banks, and is the author of three influential textbooks on quantitative finance.",
-    speakerPhoto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+    location: "Yildiz Technical University",
+    speaker: " Dr. Dauren MATIN",
+    position: "N. Gumilyov Eurasian National University, Kazakhstan",
+    speakerBio: "Dr. Dauren Matin is an Associate Professor at the Department of Higher Mathematics at L.N. Gumilyov Eurasian National University in Astana, Kazakhstan. His primary research interests center on functional analysis, with a particular focus on the compactness of sets in Banach spaces and the compactness of operators in various function spaces.",
+    speakerPhoto: "/images/photo_matin.jpg",
     abstract: [
-      "This presentation examined the mathematical foundations of modern financial theory through the lens of stochastic processes. Topics included Brownian motion, martingales, Itô calculus, and their applications to option pricing and portfolio optimization.",
-      "We explored the Black-Scholes model, stochastic volatility models, and jump-diffusion processes. The seminar also addressed recent challenges in financial modeling, including the incorporation of market frictions, behavioral factors, and systemic risk considerations in mathematical frameworks."
-    ],
-    isUpcoming: false
-  },
-  {
-    id: 7,
-    title: "Fractals and Chaos Theory in Dynamical Systems",
-    date: "May 18, 2023",
-    time: "3:00 PM (GMT+3)",
-    location: "Lecture Theater A",
-    speaker: "Dr. Alexandra Petrov",
-    position: "Associate Professor of Mathematics, ETH Zurich",
-    speakerBio: "Renowned expert in nonlinear dynamics and chaos theory. Dr. Petrov's research explores fractal geometry, strange attractors, and their applications in weather prediction and biological systems. She has received the European Mathematical Society Prize for her groundbreaking work.",
-    speakerPhoto: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80",
-    abstract: [
-      "This seminar delved into the fascinating world of fractals and chaos theory. We examined how simple deterministic systems can exhibit complex, unpredictable behavior, and explored the mathematical tools used to analyze such systems.",
-      "Topics covered included the Mandelbrot set, Lorenz attractors, bifurcation theory, and Lyapunov exponents. Real-world applications in meteorology, population dynamics, and fluid mechanics were presented, demonstrating the wide-ranging impact of chaos theory across scientific disciplines."
+      "This talk examines the compactness of sets in local and global Morrey-type spaces, establishing analogues of the classical Kolmogorov–Fréchet theorem for these function classes. The speaker will present new conditions that ensure the compactness of the commutator of the Riesz potential within the general setting of Morrey-type spaces.",
     ],
     isUpcoming: false
   }

@@ -12,21 +12,25 @@ export function PastConferences() {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   
   const images = [
-    {
-      url: "https://images.unsplash.com/photo-1526045004414-3e7ed02f9ca1?w=1200&q=80",
-      caption: "ICOMAA 2023 Opening Ceremony"
+   {
+      url: "/images/25-24_event.jpg",
+      caption: "ICOMAA 2025&2024 "
     },
     {
-      url: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=1200&q=80",
+      url: "/images/(1).jpg",
       caption: "Keynote Presentation"
     },
     {
-      url: "https://images.unsplash.com/photo-1760420940953-3958ad9f6287?w=1200&q=80",
+      url: "/images/(2).jpg",
       caption: "Panel Discussion"
     },
     {
-      url: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=1200&q=80",
-      caption: "Networking Event"
+      url: "/images/25-24_event2.jpg",
+      caption: "Insightful Seminar Talk"
+    },
+    {
+      url: "/images/25-24_event1.jpg",
+      caption: "Our Collaborators David C. Uribe & Scott Rodney"
     }
   ];
 

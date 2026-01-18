@@ -188,7 +188,7 @@ export function NextSeminar() {
             className="text-center mt-6 sm:mt-8 md:mt-10"
           >
             <motion.a 
-              href="https://online.yildiz.edu.tr/joinmeeting?meetingid=e979cb87-36eb-41be-9eb6-ac5dc862519c"
+              href="https://online.yildiz.edu.tr/joinmeeting?meetingid=d99ea6e3-ab7c-40ee-81dd-331cf2af63b9"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={reduceMotion ? undefined : { scale: 1.05 }}

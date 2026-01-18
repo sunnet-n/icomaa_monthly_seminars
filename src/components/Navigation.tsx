@@ -1,11 +1,13 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logoImage from "figma:asset/648f4aef5a465702a33acc7656f71240d0017115.png";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,19 +34,20 @@ export function Navigation() {
   }, [isOpen]);
 
   const navItems = [
-    { label: "Home", href: "#hero" },
-    { label: "Next Seminar", href: "#next-seminar" },
-    { label: "Past Events", href: "#past-conferences" },
-    { label: "About", href: "#about" },
-    { label: "Venue", href: "#venue" },
-    { label: "Team", href: "#team" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", path: "/" },
+    { label: "Annual Conference", path: "/annual-conference" },
+    { label: "Seminars", path: "/seminars" },
+    { label: "About", path: "/about" },
+    { label: "Team", path: "/team" },
+    { label: "Contact", path: "/contact" },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = () => {
     setIsOpen(false);
+  };
+
+  const isActivePath = (path: string) => {
+    return location.pathname === path;
   };
 
   return (
@@ -76,14 +79,20 @@ export function Navigation() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-2">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="relative px-4 py-2 text-slate-700 hover:text-blue-600 transition-all rounded-2xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 group"
+                  to={item.path}
+                  className={`relative px-4 py-2 transition-all rounded-2xl group ${
+                    isActivePath(item.path)
+                      ? "text-blue-600 bg-gradient-to-r from-blue-50 to-cyan-50"
+                      : "text-slate-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50"
+                  }`}
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
-                </button>
+                  <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 transition-all duration-300 rounded-full ${
+                    isActivePath(item.path) ? "w-3/4" : "w-0 group-hover:w-3/4"
+                  }`}></span>
+                </Link>
               ))}
             </div>
 
@@ -108,10 +117,13 @@ export function Navigation() {
           >
             <div className="mobile-menu-content">
               {navItems.map((item, index) => (
-                <button
+                <Link
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="mobile-menu-item"
+                  to={item.path}
+                  onClick={handleNavClick}
+                  className={`mobile-menu-item ${
+                    isActivePath(item.path) ? "mobile-menu-item-active" : ""
+                  }`}
                   style={{
                     animation: isOpen 
                       ? `slideIn 0.4s ease-out ${index * 0.07}s both` 
@@ -119,7 +131,7 @@ export function Navigation() {
                   }}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -165,6 +177,11 @@ export function Navigation() {
           background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
           color: rgb(37, 99, 235);
           padding-left: 2rem;
+        }
+
+        .mobile-menu-item-active {
+          background: linear-gradient(to right, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
+          color: rgb(37, 99, 235);
         }
 
         .mobile-menu-item:last-child {

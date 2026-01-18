@@ -1,11 +1,42 @@
 import { Building2, Car, MapPin, Train } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { motion, useReducedMotion } from "motion/react";
 
 export function Venue() {
+  const reduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: reduceMotion
+      ? { opacity: 1, y: 0 }
+      : { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="venue" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl">Venue</h2>
+    <section id="venue" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <motion.div 
+        className="max-w-6xl mx-auto"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={containerVariants}
+      >
+        <motion.h2 
+          variants={itemVariants}
+          className="text-slate-800 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl"
+        >
+          Venue
+        </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Venue Information */}
@@ -89,7 +120,7 @@ export function Venue() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

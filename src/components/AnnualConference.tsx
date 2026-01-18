@@ -2,15 +2,40 @@ import { Calendar, Download, MapPin, Users } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ImageModal } from "./ImageModal";
 import { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import brochureImage from "figma:asset/365251c5af40fc60ef62fa6786fe15f88ac87532.png";
 
 export function AnnualConference() {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  const reduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: reduceMotion
+      ? { opacity: 1, y: 0 }
+      : { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <section id="annual-conference" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+      <motion.div 
+        className="max-w-6xl mx-auto"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-center mb-8 sm:mb-12 text-3xl sm:text-4xl">
           Annual Event
         </h2>
@@ -20,7 +45,7 @@ export function AnnualConference() {
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Join us for the biggest mathematics event of the year
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Conference Brochure */}
@@ -43,7 +68,7 @@ export function AnnualConference() {
             </div>
 
             <button className="w-full bg-gradient-to-r from-orange-600 to-pink-600 hover:from-orange-600 hover:to-pink-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-full hover:scale-105 shadow-lg hover:shadow-xl active:scale-95 will-change-transform text-sm sm:text-base">
-              <a  href="https://2025.icomaas.com/"
+              <a  href="https://2026.icomaas.com/"
               target="_blank"
               rel="noopener noreferrer"
               >
@@ -60,7 +85,7 @@ export function AnnualConference() {
               </h3>
               
               <div className="space-y-4">
-                <div className="flex items-start gap-4 backdrop-blur-sm bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-4">
+                <div className="flex items-start gap-4 backdrop-blur-sm bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
                     <Calendar className="text-white" size={20} />
                   </div>
@@ -70,7 +95,7 @@ export function AnnualConference() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 backdrop-blur-sm bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl p-4">
+                <div className="flex items-start gap-4 backdrop-blur-sm bg-gradient-to-r from-pink-100 to-orange-100 rounded-2xl p-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-pink-600 to-orange-500 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
                     <Users className="text-white" size={20} />
                   </div>
@@ -80,7 +105,7 @@ export function AnnualConference() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 backdrop-blur-sm bg-gradient-to-r from-orange-50 to-purple-50 rounded-2xl p-4">
+                <div className="flex items-start gap-4 backdrop-blur-sm bg-gradient-to-r from-orange-100 to-purple-100 rounded-2xl p-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
                     <MapPin className="text-white" size={20} />
                   </div>
@@ -115,7 +140,7 @@ export function AnnualConference() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Image Modal */}
       <ImageModal

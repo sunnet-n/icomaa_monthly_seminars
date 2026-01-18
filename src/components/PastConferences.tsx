@@ -1,7 +1,9 @@
 import { Calendar, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ImageModal } from "./ImageModal";
+import { pastSeminars } from "../data/pastSeminars";
 
 export function PastConferences() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -11,79 +13,23 @@ export function PastConferences() {
   
   const images = [
     {
-      url: "images/25-24_event.jpg",
-      caption: "ICOMAA 2025&2024 "
+      url: "https://images.unsplash.com/photo-1526045004414-3e7ed02f9ca1?w=1200&q=80",
+      caption: "ICOMAA 2023 Opening Ceremony"
     },
     {
-      url: "images/(1).jpg",
+      url: "https://images.unsplash.com/photo-1492538368677-f6e0afe31dcc?w=1200&q=80",
       caption: "Keynote Presentation"
     },
     {
-      url: "images/(2).jpg",
+      url: "https://images.unsplash.com/photo-1760420940953-3958ad9f6287?w=1200&q=80",
       caption: "Panel Discussion"
     },
     {
-      url: "images/25-24_event2.jpg",
-      caption: "Insightful Seminar Talk"
-    },
-    {
-      url: "images/25-24_event1.jpg",
-      caption: "Our Collaborators David C. Uribe & Scott Rodney"
+      url: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=1200&q=80",
+      caption: "Networking Event"
     }
   ];
 
-  const pastSeminars = [
-        {
-      id: 1,
-      title: "Modeling the Role of Immune Cells in Resistance to Oncolotic Viral Therapy with Time Delays",
-      date: "December 3, 2025",
-      speaker: "Prof. Dr. Sophia Jang",
-      position: "Department of Mathematics and Statistics Texas Tech University,USA",
-      speakerPhoto: "images/Sophia.jpg"
-    },
-     {
-      id: 2,
-     title: "Discrete Operators in Discrete Function Spaces",
-      date: "December 3, 2025",
-      speaker: "Prof. Dr. Nurzhan BOKAYEV",
-      position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
-      speakerPhoto: "images/photo_nurzhan.jpg"
-    },
-     {
-      id: 3,
-       title: "Boundedness and Compactness of some operators in Morrey-type space",
-      date: "December 3, 2025",
-      speaker: " Dr. Dauren MATIN",
-      position: "L.N. Gumilyov Eurasian National University, Kazakhstan",
-      speakerPhoto: "images/photo_matin.jpg"
-    },
-     {
-      id: 4,
-      title: "Bernstein-Walch Theorem and on the Uniqueness Theorems of Entire Functions",
-      date: "October 15, 2025",
-      speaker: "Prof. Dr. Djebbar BACHIR",
-      position: "Oran University of Science and Technology, Algeria",
-      speakerPhoto: "images/photo_speaker1.jpg"
-    },
-    {
-      id: 5,
-      title: "Frequency Estimation Using Discrete Fourier Transform(DFT)",
-      date: "December 4, 2024",
-      speaker: "Prof. Dr. Ahmet SERBES",
-      position: "Yildiz Technical University, Turkey",
-      speakerPhoto: "images/no_photo.jpg"
-    },
-  ];
-  const upcomingSeminars = [
-    {
-      id: 1,
-      title: "Graph Theory and its Applications",
-      date: "January 21, 2026",
-      speaker: "Prof.Dr. İsmail Naci",
-      position: "Uludağ Üniversity, Turkey",
-      speakerPhoto: "images/cngul.jpg"
-    }
-  ];
   const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
@@ -198,14 +144,15 @@ export function PastConferences() {
 
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {pastSeminars.map((seminar) => (
-            <div
+            <Link
               key={seminar.id}
-              className="backdrop-blur-xl bg-white/80 rounded-3xl overflow-hidden border border-white/60 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              to={`/past-events/${seminar.id}`}
+              className="backdrop-blur-xl bg-white/80 rounded-3xl overflow-hidden border border-white/60 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 block"
             >
               <div className="p-4 sm:p-6">
                 {/* Speaker Info */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-lg ring-2 ring-neutral-500/40 flex-shrink-0 overflow-hidden">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-lg ring-2 ring-purple-500/40 flex-shrink-0 overflow-hidden">
                     <ImageWithFallback
                       src={seminar.speakerPhoto}
                       alt={seminar.speaker}
@@ -230,59 +177,17 @@ export function PastConferences() {
                   <span className="text-slate-700 text-xs sm:text-sm">{seminar.date}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* View All Button */}
         <div className="text-center mt-8 sm:mt-10">
           <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all hover:scale-105 shadow-xl text-sm sm:text-base">
-            Upcoming Seminars
+            View All Past Events
           </button>
         </div>
       </div>
-        <div className="mb-8">
-          <h3 className="text-slate-800 text-center mb-8"></h3>
-        </div>
-
-
-      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-          {upcomingSeminars.map((seminar) => (
-            <div
-              key={seminar.id}
-              className="backdrop-blur-xl bg-white/80 rounded-3xl overflow-hidden border border-white/60 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="p-4 sm:p-6">
-                {/* Speaker Info */}
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-lg ring-2 ring-neutral-500/40 flex-shrink-0 overflow-hidden">
-                    <ImageWithFallback
-                      src={seminar.speakerPhoto}
-                      alt={seminar.speaker}
-                      className="w-full h-full object-cover object-center scale-110"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-slate-900 truncate text-sm sm:text-base">{seminar.speaker}</div>
-                    <p className="text-slate-600 text-xs sm:text-sm truncate">{seminar.position}</p>
-                  </div>
-                </div>
-
-                {/* Seminar Title */}
-                <h4 className="text-slate-800 mb-3 sm:mb-4 leading-snug text-base sm:text-lg">
-                  {seminar.title}
-                </h4>
-
-                {/* Date */}
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-blue-100 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                  <Calendar size={14} className="text-purple-600 sm:w-4 sm:h-4" />
-                  <span className="text-slate-700 text-xs sm:text-sm">{seminar.date}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
       {/* Image Modal */}
       <ImageModal

@@ -1,34 +1,29 @@
-import { Navigation } from "./components/Navigation";
-import { Hero } from "./components/Hero";
-import { NextSeminar } from "./components/NextSeminar";
-import { AnnualConference } from "./components/AnnualConference";
-import { PastConferences } from "./components/PastConferences";
-import { About } from "./components/About";
-import { Venue } from "./components/Venue";
-import { Team } from "./components/Team";
-import { Contact } from "./components/Contact";
-import { ScrollToTop } from "./components/ScrollToTop";
-import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { HomePage } from "./pages/HomePage";
+import { AnnualConferencePage } from "./pages/AnnualConferencePage";
+import { SeminarsPage } from "./pages/SeminarsPage";
+import { AboutPage } from "./pages/AboutPage";
+import { TeamPage } from "./pages/TeamPage";
+import { ContactPage } from "./pages/ContactPage";
+import { SeminarDetailPage } from "./pages/SeminarDetailPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export default function App() {
-  // Preload critical hero image for better LCP
-  useEffect(() => {
-    const heroImage = new Image();
-    heroImage.src = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80";
-  }, []);
-
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <NextSeminar />
-      <AnnualConference />
-      <PastConferences />
-      <About />
-      <Venue />
-      <Team />
-      <Contact />
-      <ScrollToTop />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="annual-conference" element={<AnnualConferencePage />} />
+          <Route path="seminars" element={<SeminarsPage />} />
+          <Route path="seminars/:id" element={<SeminarDetailPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="team" element={<TeamPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

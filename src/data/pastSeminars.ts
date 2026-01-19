@@ -20,7 +20,7 @@ export const pastSeminars: PastSeminar[] = [
     date: "January 21, 2026",
     time: "3:00 PM (GMT+3)",
     location: "Zoom Meeting",
-    speaker: "Prof.Dr. İsmail NACİ",
+    speaker: "Prof.Dr. İsmail Naci CANGÜL",
     position: "Professor of Applied Mathematics, Uludağ University, Turkey",
     speakerBio: "Prof. Dr. İsmail Naci Cangül is a full professor of mathematics at Uludağ University, Turkey, with research interests in graph, number theories and their applications. He has published extensively in international journals, supervised numerous MSc and PhD students, and has served in various academic and administrative leadership positions.",
     speakerPhoto: "/images/cngul.jpg",

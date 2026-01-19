@@ -125,7 +125,7 @@ export function NextSeminar() {
                 <div className="inline-block bg-blue-100 text-blue-700 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm mb-2 sm:mb-3">
                   Speaker
                 </div>
-                <h3 className="text-blue-900 mb-1 sm:mb-2 text-xl sm:text-2xl">Prof.Dr. İsmail NACİ</h3>
+                <h3 className="text-blue-900 mb-1 sm:mb-2 text-xl sm:text-2xl">Prof.Dr. İsmail Naci CANGÜL</h3>
                 <p className="text-blue-700 mb-2 sm:mb-3 text-sm sm:text-base">
                   Professor of Applied Mathematics
                 </p>

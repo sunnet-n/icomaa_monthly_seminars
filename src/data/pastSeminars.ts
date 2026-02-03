@@ -15,6 +15,22 @@ export interface PastSeminar {
 
 export const pastSeminars: PastSeminar[] = [
   {
+    id: 7,
+    title: "On Fractional-Order Discrete-Time Systems: Chaos, Stabilization, and Synchronization.",
+    date: "Februrary 4, 2026",
+    time: "3:00 PM (GMT+3)",
+    location: "Zoom Meeting",
+    speaker: "Prof.Dr. Rene Lozi",
+    position: "Department of Mathematics, Université Côte d’Azur,France",
+    speakerBio: "Prof. René Lozi is a Professor of Mathematics at Université Côte d’Azur (Dieudonné Center of Mathematics, France) and a leading figure in nonlinear dynamics and chaos theory. He is best known for discovering the Lozi map, a planar system with a strange attractor. His research spans dynamical systems, complexity and emergence, chaos control, and applications to cryptography, memristors, and artificial intelligence. He currently serves as Vice President of the International Society of Difference Equations.",
+    speakerPhoto: "/images/photo_Lozi.jpg",
+    abstract: [
+      "This talk presents three fractional-order systems: the fractional Lozi map, the fractional Lorenz map, and the fractional flow map. Their main dynamical features, including bifurcation behavior, are examined. Control laws for stabilization and synchronization among combinations of these systems are introduced, with convergence of the stabilized states and synchronization errors established via linearization methods. Numerical simulations are provided to illustrate and support the theoretical results.",
+    ],
+    isUpcoming: true,
+    meetingLink: "https://online.yildiz.edu.tr/joinmeeting?meetingid=30835276-342b-4732-ab92-7a9e862d59f2"
+  },
+  {
     id: 5,
     title: "Graph Theory Applications and the Novel Omega Invariant",
     date: "January 21, 2026",
@@ -27,7 +43,7 @@ export const pastSeminars: PastSeminar[] = [
     abstract: [
       "Graph theory is one of the most vibrant and widely studied branches of mathematics, driven by its rich structure and broad range of real-world applications. In the first part of this talk, we survey selected applications of graph-theoretic ideas across modern scientific and technological settings. In the second part, we introduce a new topological invariant, the Omega index (Ω), and develop its fundamental properties. We then demonstrate how Ω can be used to address several questions in combinatorics and graph theory, including progress on previously open problems.",
     ],
-    isUpcoming: true,
+    isUpcoming: false,
     meetingLink: "https://online.yildiz.edu.tr/joinmeeting?meetingid=d99ea6e3-ab7c-40ee-81dd-331cf2af63b9"
   },
   {

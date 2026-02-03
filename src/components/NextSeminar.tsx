@@ -28,7 +28,7 @@ const CountdownTimer = memo(({ timeLeft }: { timeLeft: { days: number; hours: nu
 export function NextSeminar() {
   const reduceMotion = useReducedMotion();
   
-  const targetDate = new Date("2026-01-21T15:00:00+03:00").getTime();
+  const targetDate = new Date("2026-02-04T15:00:00+03:00").getTime();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -99,7 +99,7 @@ export function NextSeminar() {
           {/* Talk Title */}
           <motion.div variants={itemVariants} className="text-center mb-6 sm:mb-8 md:mb-10">
             <h2 className="text-blue-900 mb-2 sm:mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight px-2">
-              Graph Theory Applications and the Novel Omega Invariant
+              On Fractional-Order Discrete-Time Systems: Chaos, Stabilization, and Synchronization.
             </h2>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400 rounded-full mx-auto"></div>
           </motion.div>
@@ -113,8 +113,8 @@ export function NextSeminar() {
               <div className="flex-shrink-0">
                 <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-3xl shadow-xl ring-4 ring-blue-500/20 overflow-hidden">
                   <ImageWithFallback
-                    src="images/cngul.jpg"
-                    alt="Prof.Dr. İsmail NACİ"
+                    src="images/photo_Lozi.jpg"
+                    alt="Prof.Dr. Rene LOZI"
                     className="w-full h-full object-cover object-center scale-110"
                     loading="lazy"
                   />
@@ -125,15 +125,15 @@ export function NextSeminar() {
                 <div className="inline-block bg-blue-100 text-blue-700 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm mb-2 sm:mb-3">
                   Speaker
                 </div>
-                <h3 className="text-blue-900 mb-1 sm:mb-2 text-xl sm:text-2xl">Prof.Dr. İsmail Naci CANGÜL</h3>
+                <h3 className="text-blue-900 mb-1 sm:mb-2 text-xl sm:text-2xl">Prof.Dr. Rene LOZI</h3>
                 <p className="text-blue-700 mb-2 sm:mb-3 text-sm sm:text-base">
                   Professor of Applied Mathematics
                 </p>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                  Prof. Dr. İsmail Naci Cangül is a full professor of mathematics at Uludağ University, Turkey, 
-                  with research interests in graph, number theories and their applications. He has published 
-                  extensively in international journals, supervised numerous MSc and PhD students, and has 
-                  served in various academic and administrative leadership positions.
+                  Prof. René Lozi is a Professor of Mathematics at Université Côte d’Azur (Dieudonné Center of Mathematics, France) and a leading
+                  figure in nonlinear dynamics and chaos theory. He is best known for discovering the Lozi map, a planar system with a strange attractor. 
+                  His research spans dynamical systems, complexity and emergence, chaos control, and applications to cryptography, memristors, and 
+                  artificial intelligence. He currently serves as Vice President of the International Society of Difference Equations.
                 </p>
               </div>
             </div>
@@ -145,7 +145,7 @@ export function NextSeminar() {
             className="grid grid-cols-3 gap-2 sm:gap-4 mb-6 sm:mb-8"
           >
             {[
-              { icon: Calendar, label: "Date", value: "January 21, 2026" },
+              { icon: Calendar, label: "Date", value: "February 4, 2026" },
               { icon: Clock, label: "Time", value: "3:00 PM (GMT+3)" },
               { icon: MapPin, label: "Location", value: "Zoom Meeting" },
             ].map((info, index) => (
@@ -175,10 +175,11 @@ export function NextSeminar() {
               <h4 className="text-blue-900 text-lg sm:text-xl">Abstract</h4>
             </div>
             <p className="text-slate-700 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
-              This talk explores applications of graph theory in modern science and technology
-              and introduces a new topological invariant, the Omega index (Ω). Its fundamental 
-              properties are developed, and applications to problems in combinatorics and graph 
-              theory, including progress on open questions, are presented.
+              This talk presents three fractional-order systems: the fractional Lozi map, the fractional 
+              Lorenz map, and the fractional flow map. Their main dynamical features, including bifurcation behavior, 
+              are examined. Control laws for stabilization and synchronization among combinations of these systems are introduced, 
+              with convergence of the stabilized states and synchronization errors established via linearization methods. 
+              Numerical simulations are provided to illustrate and support the theoretical results.
             </p>
           </motion.div>
 
@@ -188,7 +189,7 @@ export function NextSeminar() {
             className="text-center mt-6 sm:mt-8 md:mt-10"
           >
             <motion.a 
-              href="https://online.yildiz.edu.tr/joinmeeting?meetingid=d99ea6e3-ab7c-40ee-81dd-331cf2af63b9"
+              href="https://yildiz-edu-tr.zoom.us/w/92355827976?tk=EYxqI0yr_PM3Dpgsq9AXY-5px2WxZd-Mq0WwID_ZkA8.DQkAAAAVgNYZCBZXenNuRHdBMlNpeWhSUWtROWUxWENRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&pwd=dY6dJX2wrobxeyRTSnRxhSG36HQtlF.1"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={reduceMotion ? undefined : { scale: 1.05 }}

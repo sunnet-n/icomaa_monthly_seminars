@@ -189,7 +189,7 @@ export function NextSeminar() {
             className="text-center mt-6 sm:mt-8 md:mt-10"
           >
             <motion.a 
-              href="https://yildiz-edu-tr.zoom.us/w/92355827976?tk=EYxqI0yr_PM3Dpgsq9AXY-5px2WxZd-Mq0WwID_ZkA8.DQkAAAAVgNYZCBZXenNuRHdBMlNpeWhSUWtROWUxWENRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&pwd=dY6dJX2wrobxeyRTSnRxhSG36HQtlF.1"
+              href="https://online.yildiz.edu.tr/joinmeeting?meetingid=30835276-342b-4732-ab92-7a9e862d59f2"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={reduceMotion ? undefined : { scale: 1.05 }}
